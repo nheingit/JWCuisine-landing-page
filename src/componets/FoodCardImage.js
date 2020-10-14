@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import {Collapse} from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -27,10 +28,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard({prop}) {
+export default function MediaCard({prop, checked}) {
   const classes = useStyles();
 
   return (
+   <Collapse in={checked }   {...(checked ? { timeout: 1000 } : {})} collapsedHeight={50}>}>
     <Card className={classes.root}>
         <CardMedia
           className={classes.media}
@@ -53,5 +55,6 @@ export default function MediaCard({prop}) {
           </Typography>
         </CardContent>
     </Card>
+  </Collapse>
   );
 }

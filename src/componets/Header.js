@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {AppBar, Collapse, IconButton, Toolbar} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
+import { Link as Scroll } from 'react-scroll';
 const useStyles = makeStyles((theme)=> ({
   root:{
     display: 'flex',
@@ -49,7 +49,7 @@ export default function Header(){
   const [checked, setChecked] = useState(false);
   useEffect(()=> {setChecked(true);},[])
   return (
-  <div className={classes.root}>
+  <div className={classes.root} id='header'>
 <AppBar className={classes.appbar} elevation={0}>
   <Toolbar className={classes.appbarWrapper}>
     <h1 classname={classes.appbarTitle}><span className={classes.textColorBlack}>J.W.</span><span className={classes.textColorRed}>Cuisine</span></h1>
@@ -63,9 +63,11 @@ export default function Header(){
 <div className={classes.container}>
   <h1 className={classes.title}>Welcome to <br/>
     <span className={classes.textColorBlack}>J.W.</span><span className={classes.textColorRed}>Cuisine</span></h1>
-    <IconButton>
-      <ExpandMoreIcon className={classes.downArrow}/>
-    </IconButton>
+    <Scroll to='recipe-to-use' smooth={true}>
+      <IconButton>
+        <ExpandMoreIcon className={classes.downArrow}/>
+      </IconButton>
+    </Scroll>
 </div>
 </Collapse>
   </div>
