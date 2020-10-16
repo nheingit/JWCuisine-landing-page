@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {AppBar, Collapse, IconButton, Toolbar} from '@material-ui/core';
+import {AppBar, Collapse, IconButton, Toolbar,} from '@material-ui/core';
+import SortIcon from "@material-ui/icons/Sort";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
 const useStyles = makeStyles((theme)=> ({
@@ -28,12 +29,12 @@ const useStyles = makeStyles((theme)=> ({
     margin: '0 auto',
   },
   icon:{
-    color: '#fff',
-    fontsize: '2rem',
+    color: '#1c1b1b',
+    fontSize: '5vw'
   },
   title:{
     color: '#fff',
-    fontSize: '4.5rem',
+    fontSize: '8vw',
   },
   container:{ 
     textAlign: 'center',
@@ -52,9 +53,9 @@ export default function Header(){
   <div className={classes.root} id='header'>
 <AppBar className={classes.appbar} elevation={0}>
   <Toolbar className={classes.appbarWrapper}>
-    <h1 classname={classes.appbarTitle}><span className={classes.textColorBlack}>J.W.</span><span className={classes.textColorRed}>Cuisine</span></h1>
+    <h1 className={classes.appbarTitle}><span className={classes.textColorBlack}>J.W.</span><span className={classes.textColorRed}>Cuisine</span></h1>
       <IconButton>
-        <sortIcon className={classes.icon}/>
+        <SortIcon className={classes.icon}/>
       </IconButton>
   </Toolbar>
 </AppBar>
