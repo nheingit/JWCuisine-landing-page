@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import Header from './componets/Header';
 import PlaceToVisit from './componets/PlaceToVisit';
+import SocialFollow from './componets/SocialFollow';
+import NavBar from './componets/Navbar';
 
 const useStyles = makeStyles((theme)=> ({
   root:{
@@ -16,7 +18,11 @@ export default function(){
   const classes = useStyles();
   return <div className={classes.root}>
     <CssBaseline />
+    <NavBar>
+      <li>x</li>
+    </NavBar>
     <Header />
     <PlaceToVisit />
+    <SocialFollow />
   </div>;
   }

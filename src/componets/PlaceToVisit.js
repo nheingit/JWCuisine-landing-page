@@ -6,6 +6,8 @@ import useWindowPosition from '../hook/useWindowPosition';
 import { Grid } from '@material-ui/core';
 
 
+
+
 const useStyles = makeStyles((theme) => ({
     root:{
         minHeight:'100vh',
@@ -18,8 +20,9 @@ const useStyles = makeStyles((theme) => ({
     },
     gridContainer:{
         justifyContent: 'center',
-        paddingLeft: '20px',
-        paddingRight: '20px',
+        padding: '10px',
+
+        
     }
 }));
 export default function(){
@@ -27,32 +30,33 @@ export default function(){
     const checked = useWindowPosition('header');
     return(
         <div className={classes.root} id='recipe-to-use'>
-            <Grid container spacing={6} className={classes.gridContainer} justify='center'>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid container spacing={0} className={classes.gridContainer} justify='center'>
+                <Grid item xs={12} sm={6} lg={4}>
             <FoodCardImage prop={recipes[0]} checked={checked}/>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
             <FoodCardImage prop={recipes[0]} checked={checked}/>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
             <FoodCardImage prop={recipes[0]} checked={checked}/>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
             <FoodCardImage prop={recipes[0]} checked={checked}/>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
             <FoodCardImage prop={recipes[0]} checked={checked}/>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
             <FoodCardImage prop={recipes[0]} checked={checked}/>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
             <FoodCardImage prop={recipes[0]} checked={checked}/>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Grid item xs={12} sm={6} lg={4}>
             <FoodCardImage prop={recipes[0]} checked={checked}/>
                 </Grid>
            </Grid>
+
         </div>
     )
 }

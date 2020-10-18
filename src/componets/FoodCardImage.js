@@ -11,14 +11,14 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const useStyles = makeStyles({
   root: {
-    minHeight: '20vh',
-    minWidth: '15vw',
+    minHeight: '25vh',
+    minWidth: '8vw',
     background: 'rgba(0,0,0,0.5)',
-    margin: "6vw"
+    margin: '2vw'
   },
   media: {
-    minWidth: '15vw',
-    minHeight: '15vh',
+    minWidth: '8vw',
+    minHeight: '25vh',
 
   },
   title:{
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
   desc:{
       fontFamily: 'nunito',
-      fontSize: '1.5vw',
+      fontSize: '1.5vw'+400,
       color: '#ddd',
   },
   shoppingCartIcon:{
@@ -78,8 +78,8 @@ export default function MediaCard({prop, checked}) {
           </Typography>
         </CardContent>
         <CardActions>
-          <IconButton>
-            <AttachMoneyIcon className={classes.CardFlipper} onClick={handleClick} />
+          <IconButton onClick={handleClick}>
+            <AttachMoneyIcon className={classes.CardFlipper} />
             </IconButton>
         </CardActions>
     </Card>
@@ -88,7 +88,7 @@ export default function MediaCard({prop, checked}) {
  
         <div>
 <Card className={classes.root}>
-        <CardContent>
+        <CardContent className={classes.media}>
           <Typography gutterBottom variant="h5"
            component="h1"
             className={classes.title}
@@ -108,12 +108,12 @@ export default function MediaCard({prop, checked}) {
             <AddShoppingCartIcon className={classes.shoppingCartIcon}/>
           </IconButton>
         </CardActions>
+        <CardActions>
+          <IconButton onClick={handleClick}>
+            <AttachMoneyIcon className={classes.CardFlipper} />
+          </IconButton>
+        </CardActions>
     </Card>
-
-
-          <IconButton>
-            <AttachMoneyIcon className={classes.CardFlipper} onClick={handleClick} />
-            </IconButton>
            </div>
       </ReactCardFlip>
       </Collapse>

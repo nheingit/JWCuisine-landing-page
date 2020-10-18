@@ -9,11 +9,13 @@ const useStyles = makeStyles((theme)=> ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh',
+    height: '80vh',
     fontFamily: 'Nunito, Monospace'
   },
   appbar:{
     background: 'none',
+    maxWidth: '100vw',
+    justifyContent: 'left',
   },
   appbarTitle:{
     flexGrow: '1',
@@ -54,9 +56,11 @@ export default function Header(){
 <AppBar className={classes.appbar} elevation={0}>
   <Toolbar className={classes.appbarWrapper}>
     <h1 className={classes.appbarTitle}><span className={classes.textColorBlack}>J.W.</span><span className={classes.textColorRed}>Cuisine</span></h1>
+    <Scroll to='footer' smooth={true}>
       <IconButton>
         <SortIcon className={classes.icon}/>
       </IconButton>
+    </Scroll>
   </Toolbar>
 </AppBar>
 <Collapse in={checked}
