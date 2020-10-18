@@ -17,12 +17,13 @@ const useStyles = makeStyles((theme)=> ({
 export default function(){
   const classes = useStyles();
   return <div className={classes.root}>
-    <CssBaseline />
-    <NavBar>
-      <li>x</li>
-    </NavBar>
-    <Header />
+   <CssBaseline />
+    <NavBar />
+
+  <Header />
+    
     <PlaceToVisit />
     <SocialFollow />
+    
   </div>;
   }

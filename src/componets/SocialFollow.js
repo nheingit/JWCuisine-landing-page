@@ -76,8 +76,12 @@ export default function SocialFollow(){
                 <Grid>
                     <h3 className={classes.footerText}><pre className={classes.tab}>                Email: jwcusine@gmail.com <br/>                Phone: (210)-717-1805  </pre></h3>
                 </Grid>
+                <Grid>
+            </Grid>
 
             </Grid>
+            
         </div>
+      
     );
 }
