@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -8,6 +8,8 @@ import {CardActions, Collapse, IconButton} from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ReactCardFlip from 'react-card-flip';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
+import { CartContext } from './CartContext';
 const useStyles = makeStyles({
   root: {
     minHeight: '25vh',
@@ -31,9 +33,13 @@ const useStyles = makeStyles({
       fontSize: '1.5vw'+400,
       color: '#ddd',
   },
-  shoppingCartIcon:{
+  addShoppingCartIcon:{
     color:'#00ff00',
     fontSize: '4vh'
+  },
+  removeShoppingCartIcon:{
+    color:'#FF0000',
+    fontSize: '4vh',
   },
   CardFlipper:{
     fontSize: '4vh',
@@ -43,11 +49,18 @@ const useStyles = makeStyles({
 });
 
 export default function MediaCard({prop, checked}) {
+  const [cart, setCart] = useContext(CartContext);
   const classes = useStyles();
   const [isFlipped, setIsFlipped] = useState(false);
-
+  const addToCart = () => {
+    const recipe = {name: prop.title, price: prop.price, id: prop.id}
+    setCart(items => [...items, recipe]);
+  }
   const handleClick = () => {
     setIsFlipped(!isFlipped);
+  }
+  const removeFromCart = ()=>{
+    console.log('removed..')
   }
 
   return (
@@ -103,8 +116,13 @@ export default function MediaCard({prop, checked}) {
           </Typography>
         </CardContent>
         <CardActions>
-          <IconButton>
-            <AddShoppingCartIcon className={classes.shoppingCartIcon}/>
+        <IconButton onClick={removeFromCart}>
+            <RemoveShoppingCartIcon className={classes.removeShoppingCartIcon} />
+         </IconButton>
+        </CardActions>
+        <CardActions>
+          <IconButton onClick={addToCart}>
+            <AddShoppingCartIcon className={classes.addShoppingCartIcon} />
           </IconButton>
         </CardActions>
         <CardActions>

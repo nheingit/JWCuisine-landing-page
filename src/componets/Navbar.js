@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import '../index.css'
 /*{this is the format how to to import svg files as react componets
 import { ReactComponet as SvgIcon} from  './youriconfolder/yourpicture.svg';
@@ -10,6 +10,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { ShoppingBasket } from '@material-ui/icons';
+import {CartContext} from './CartContext';
 const  NavigationBar= () => {
     return(
         
@@ -22,7 +23,6 @@ const  NavigationBar= () => {
 
     );
 }
-
 
 function NavBar(props){
     return (
@@ -43,6 +43,9 @@ function NavItem(props){
     );
 }
 function DropdownMenu(){
+    const [cart, setCart] = useContext(CartContext)
+    const totalPrice = cart.reduce((acc, curr) => acc+curr.price, 0);
+    const DishesInCart = cart.map(item => item.name);
     const [activeMenu, setActiveMenu] = useState('main'); //main menu, can be profile, settings, etc.
     const [menuHeight, setMenuHeight] = useState('null');
 
@@ -91,11 +94,10 @@ function DropdownMenu(){
             <div className='menu'>
                
             <DropdownItem leftIcon={<ChevronLeftIcon />} goToMenu='main'>Back</DropdownItem>
-            <DropdownItem leftIcon={<ShoppingBasket/>}>Cart Item</DropdownItem>
-            <DropdownItem leftIcon={<ShoppingBasket/>}>Cart Item</DropdownItem>
-            <DropdownItem leftIcon={<ShoppingBasket/>}>Cart Item</DropdownItem>
-            <DropdownItem leftIcon={<ShoppingBasket/>}>Cart Item</DropdownItem>
-            
+    <DropdownItem leftIcon={<ShoppingBasket/>}>Items in cart: {DishesInCart}</DropdownItem>
+    <DropdownItem leftIcon={<ShoppingBasket/>}>Checkout price: {totalPrice}</DropdownItem>
+    <DropdownItem leftIcon={<ShoppingBasket/>}>Total items: {cart.length}</DropdownItem>
+
             </div>
           </CSSTransition>
         </div>

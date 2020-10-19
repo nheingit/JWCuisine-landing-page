@@ -4,7 +4,8 @@ import { CssBaseline } from '@material-ui/core';
 import Header from './componets/Header';
 import PlaceToVisit from './componets/PlaceToVisit';
 import SocialFollow from './componets/SocialFollow';
-import NavBar from './componets/Navbar';
+import { Cart  } from './componets/Cart';
+import {CartProvider, CartContext} from './componets/CartContext'
 
 const useStyles = makeStyles((theme)=> ({
   root:{
@@ -16,11 +17,14 @@ const useStyles = makeStyles((theme)=> ({
 }));
 export default function(){
   const classes = useStyles();
-  return <div className={classes.root}>
+  return(
+    <CartProvider>
+   <div className={classes.root}>
    <CssBaseline />
   <Header />
     <PlaceToVisit />
     <SocialFollow />
-    
-  </div>;
+  </div>
+  </CartProvider>
+  );
   }
