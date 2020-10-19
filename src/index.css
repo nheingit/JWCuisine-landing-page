@@ -13,13 +13,12 @@ code {
 
 
 :root {
-  --bg:  #242526;
   --bg-accent: #484a4d;
-  --text-color: #dadce1;
+  --text-color: #f5f5f5;
   --nav-size: 60px;
-  --border: 1px solid #474a4d;
   --border-radius: 8px;
   --speed: 500ms; 
+  font-family: Nunito;
 }
 
 ul {
@@ -41,6 +40,7 @@ a {
   background-color: var(--bg);
   padding: 0 1rem;
   border-bottom: var(--border);
+  z-index: 999;
 }
 
 /* <ul> */
@@ -49,6 +49,7 @@ a {
   height: 100%;
   display: flex;
   justify-content: flex-end;
+  z-index: 999;
 }
 
 /* <li> */
@@ -57,14 +58,16 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
 }
 
 /* Icon Button */
 .icon-button {
+  color: #151616;
   --button-size: calc(var(--nav-size) * 0.5);
   width: var(--button-size);
   height: var(--button-size);
-  background-color: #484a4d;
+  background-color: #cac8c8;
   border-radius: 50%;
   padding: 5px;
   margin: 2px;
@@ -72,16 +75,18 @@ a {
   align-items: center;
   justify-content: center;
   transition: filter 300ms;
+  z-index: 999;
 }
 
 .icon-button:hover {
   filter: brightness(1.2);
 }
 
-.icon-button svg { 
-  fill: var(--text-color);
-  width: 20px;
-  height: 20px;
+.header-text{
+  justify-content: start;
+  font-family: Nunito;
+  color: #fff;
+
 }
 
 
@@ -92,7 +97,7 @@ a {
   top: 58px;
   width: 300px;
   transform: translateX(-45%);
-  background-color: var(--bg);
+  background-color: rgba(0,0,0,0.5);
   border: var(--border);
   border-radius: var(--border-radius);
   padding: 1rem;
@@ -155,9 +160,7 @@ a {
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
-.menu-secondary-exit {
 
-}
 .menu-secondary-exit-active {
   transform: translateX(110%);
   transition: all var(--speed) ease;

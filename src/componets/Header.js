@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {AppBar, Collapse, IconButton, Toolbar,} from '@material-ui/core';
+import {AppBar,  Toolbar, Collapse, IconButton, } from '@material-ui/core';
 import SortIcon from "@material-ui/icons/Sort";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme)=> ({
   textColorRed:{
     color: '#fc0303',
   },
-  textColorBlack:{
-    color: '#1c1b1b',
+  textColorWhite:{
+    color: '#fff',
   },
   appbarWrapper:{
     width: '80%',
@@ -54,17 +54,14 @@ export default function Header(){
   useEffect(()=> {setChecked(true);},[])
   return (
   <div className={classes.root} id='header'>
-{/*<AppBar className={classes.appbar} elevation={0}>
+
+<AppBar className={classes.appbar} elevation={0}>
   <Toolbar className={classes.appbarWrapper}>
     <h1 className={classes.appbarTitle}><span className={classes.textColorBlack}>J.W.</span><span className={classes.textColorRed}>Cuisine</span></h1>
-    <Scroll to='footer' smooth={true}>
-      <IconButton>
-        <SortIcon className={classes.icon}/>
-      </IconButton>
-    </Scroll>
+    <NavigationBar />
   </Toolbar>
 </AppBar>
-  */}
+
 <Collapse in={checked}
 {...(checked ? { timeout: 1000 } : {})} collapsedHeight={50}>
 <div className={classes.container}>

@@ -8,7 +8,6 @@ import {CardActions, Collapse, IconButton} from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ReactCardFlip from 'react-card-flip';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-
 const useStyles = makeStyles({
   root: {
     minHeight: '25vh',

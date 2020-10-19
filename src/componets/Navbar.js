@@ -4,13 +4,17 @@ import '../index.css'
 import { ReactComponet as SvgIcon} from  './youriconfolder/yourpicture.svg';
 }*/
 import {CSSTransition} from 'react-transition-group';
-
-function NavigationBar(){
+import SortIcon from "@material-ui/icons/Sort";
+import PersonIcon from '@material-ui/icons/Person';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import { ShoppingBasket } from '@material-ui/icons';
+const  NavigationBar= () => {
     return(
+        
         <NavBar>
-            <NavItem icon ='😊'/>
-            <NavItem icon ='😊'/>
-            <NavItem icon ='drop'>
+            <NavItem icon ={<SortIcon />}>
                 <DropdownMenu></DropdownMenu>
             </NavItem>
 
@@ -43,7 +47,7 @@ function DropdownMenu(){
     const [menuHeight, setMenuHeight] = useState('null');
 
     function calcHeight(el){
-        const height= el.offsetHeight;
+        const height= el.offsetHeight+16;
         setMenuHeight(height);
     }
     function DropdownItem(props){
@@ -66,19 +70,19 @@ function DropdownMenu(){
            >
             <div className='menu'>
                
-            <DropdownItem>
-                myProfile
+            <DropdownItem leftIcon={<PersonIcon />}>
+                My Profile
             </DropdownItem>
             <DropdownItem
-            leftIcon='leftIcon'
-            rightIcon='rightIcon'
-            goToMenu='settings'> settings
+            leftIcon={<ShoppingCartIcon />}
+            rightIcon={<ChevronRightIcon />}
+            goToMenu='cart'> Cart
                 
             </DropdownItem>
             </div>
           </CSSTransition>
 
-          <CSSTransition in={activeMenu === 'settings'}
+          <CSSTransition in={activeMenu === 'cart'}
            unmountOnExit
            timeout={500}
            classNames='menu-secondary'
@@ -86,11 +90,12 @@ function DropdownMenu(){
            >
             <div className='menu'>
                
-            <DropdownItem leftIcon='leftIcon' goToMenu='main'/>
-            <DropdownItem>Settings</DropdownItem>
-            <DropdownItem>Settings</DropdownItem>
-            <DropdownItem>Settings</DropdownItem>
-            <DropdownItem>Settings</DropdownItem>
+            <DropdownItem leftIcon={<ChevronLeftIcon />} goToMenu='main'>Back</DropdownItem>
+            <DropdownItem leftIcon={<ShoppingBasket/>}>Cart Item</DropdownItem>
+            <DropdownItem leftIcon={<ShoppingBasket/>}>Cart Item</DropdownItem>
+            <DropdownItem leftIcon={<ShoppingBasket/>}>Cart Item</DropdownItem>
+            <DropdownItem leftIcon={<ShoppingBasket/>}>Cart Item</DropdownItem>
+            
             </div>
           </CSSTransition>
         </div>

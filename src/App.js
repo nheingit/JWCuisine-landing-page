@@ -18,10 +18,7 @@ export default function(){
   const classes = useStyles();
   return <div className={classes.root}>
    <CssBaseline />
-    <NavBar />
-
   <Header />
-    
     <PlaceToVisit />
     <SocialFollow />
     
