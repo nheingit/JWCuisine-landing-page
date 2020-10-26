@@ -60,7 +60,12 @@ export default function MediaCard({prop, checked}) {
     setIsFlipped(!isFlipped);
   }
   const removeFromCart = ()=>{
-    console.log('removed..')
+    const recipe = {id: prop.id}
+    const itemsToKeep = cart.filter(items =>( items.id !== recipe.id))
+    const itemsToRemove = cart.filter(items =>( items.id === recipe.id))
+    itemsToRemove.pop();
+    const newCart = itemsToKeep.concat(itemsToRemove);
+    setCart(newCart);
   }
 
   return (
