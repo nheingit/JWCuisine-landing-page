@@ -33,9 +33,13 @@ function NavBar(props){
 }
 function NavItem(props){
     const [open, setOpen] = useState(false);
+    function clickHandle(e){
+        e.preventDefault();
+        setOpen(!open);
+    }
     return(
         <li className='nav-item'>
-            <a href='#' className='icon-button' onClick={() => setOpen(!open)}>
+            <a href='#' className='icon-button' onClick={clickHandle}>
                 {props.icon}
             </a>
             {open && props.children}
@@ -45,7 +49,6 @@ function NavItem(props){
 function DropdownMenu(){
     const [cart, setCart] = useContext(CartContext)
     const totalPrice = cart.reduce((acc, curr) => acc+curr.price, 0);
-    const DishesInCart = cart.map(item => item.name);
     const [activeMenu, setActiveMenu] = useState('main'); //main menu, can be profile, settings, etc.
     const [menuHeight, setMenuHeight] = useState('null');
 
@@ -54,7 +57,11 @@ function DropdownMenu(){
         setMenuHeight(height);
     }
     function DropdownItem(props){
-        return( <a href='#' className='menu-item' onClick={()=>props.goToMenu && setActiveMenu(props.goToMenu)}>
+        function clickHandle(e){
+            e.preventDefault();
+            props.goToMenu && setActiveMenu(props.goToMenu)
+        }
+        return( <a href='#' className='menu-item' onClick={clickHandle}>
             <span className='icon-button'>{props.leftIcon}</span>
 
             {props.children}
@@ -94,12 +101,25 @@ function DropdownMenu(){
             <div className='menu'>
                
             <DropdownItem leftIcon={<ChevronLeftIcon />} goToMenu='main'>Back</DropdownItem>
-    <DropdownItem leftIcon={<ShoppingBasket/>}>Items in cart: {DishesInCart}</DropdownItem>
+    <DropdownItem leftIcon={<ShoppingBasket/>} rightIcon = {<ChevronRightIcon/>}goToMenu='cartItems'>Items in cart </DropdownItem>
     <DropdownItem leftIcon={<ShoppingBasket/>}>Checkout price: {totalPrice}</DropdownItem>
     <DropdownItem leftIcon={<ShoppingBasket/>}>Total items: {cart.length}</DropdownItem>
 
             </div>
           </CSSTransition>
+          <CSSTransition in={activeMenu === 'cartItems'}
+           unmountOnExit
+           timeout={500}
+           classNames='menu-secondary'
+           onEnter={calcHeight}
+           >
+                <div className = 'menu'>
+    <DropdownItem leftIcon={<ChevronLeftIcon/>} goToMenu='cart'>Back</DropdownItem>
+                        {cart.map(item => (
+                            <DropdownItem leftIcon={<ShoppingBasket/>}>{item.name}</DropdownItem>
+                        ))}
+                </div>   
+           </CSSTransition>
         </div>
     );
 }
