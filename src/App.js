@@ -4,8 +4,10 @@ import { CssBaseline } from '@material-ui/core';
 import Header from './componets/Header';
 import PlaceToVisit from './componets/PlaceToVisit';
 import SocialFollow from './componets/SocialFollow';
-import { Cart  } from './componets/Cart';
-import {CartProvider, CartContext} from './componets/CartContext'
+import {CartProvider, CartContext} from './componets/CartContext';
+import LoginButton from './componets/LoginButton';
+import LogoutButton from './componets/LogoutButton';
+import Profile from './componets/Profile';
 
 const useStyles = makeStyles((theme)=> ({
   root:{
@@ -17,6 +19,7 @@ const useStyles = makeStyles((theme)=> ({
 }));
 export default function(){
   const classes = useStyles();
+
   return(
     <CartProvider>
    <div className={classes.root}>

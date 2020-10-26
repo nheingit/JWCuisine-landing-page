@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {AppBar,  Toolbar, Collapse, IconButton, } from '@material-ui/core';
-import SortIcon from "@material-ui/icons/Sort";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
 import NavigationBar from './Navbar';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
+import Profile from './Profile';
 const useStyles = makeStyles((theme)=> ({
   root:{
     display: 'flex',
@@ -46,6 +48,9 @@ const useStyles = makeStyles((theme)=> ({
     fontSize: '5rem',
     color: '#1c1b1b'
   },
+  headerText:{
+    margin: '1rem',
+  }
 
 }));
 export default function Header(){
@@ -57,7 +62,9 @@ export default function Header(){
 
 <AppBar className={classes.appbar} elevation={0}>
   <Toolbar className={classes.appbarWrapper}>
-    <h1 className={classes.appbarTitle}><span className={classes.textColorBlack}>J.W.</span><span className={classes.textColorRed}>Cuisine</span></h1>
+  <LoginButton/>
+  <LogoutButton/>
+    <h1 className={classes.appbarTitle}><span className={classes.headerText}>J.W.<span className={classes.textColorRed}>Cuisine</span></span></h1>
     <NavigationBar />
   </Toolbar>
 </AppBar>

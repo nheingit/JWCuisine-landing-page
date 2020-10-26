@@ -21,6 +21,17 @@ code {
   font-family: Nunito;
 }
 
+h2{
+  color: #484a4d;
+}
+
+button {
+  height: 35px;
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  width: 120px;
+  cursor: pointer;
+}
 ul {
   list-style: none;
   margin: 0;

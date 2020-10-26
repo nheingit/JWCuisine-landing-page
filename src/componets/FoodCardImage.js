@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -52,13 +52,16 @@ export default function MediaCard({prop, checked}) {
   const [cart, setCart] = useContext(CartContext);
   const classes = useStyles();
   const [isFlipped, setIsFlipped] = useState(false);
+
   const addToCart = () => {
     const recipe = {name: prop.title, price: prop.price, id: prop.id}
     setCart(items => [...items, recipe]);
   }
+
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   }
+
   const removeFromCart = ()=>{
     const recipe = {id: prop.id}
     const itemsToKeep = cart.filter(items =>( items.id !== recipe.id))
@@ -67,6 +70,7 @@ export default function MediaCard({prop, checked}) {
     const newCart = itemsToKeep.concat(itemsToRemove);
     setCart(newCart);
   }
+  
 
   return (
     

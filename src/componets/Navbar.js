@@ -11,6 +11,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { ShoppingBasket } from '@material-ui/icons';
 import {CartContext} from './CartContext';
+import {useAuth0} from '@auth0/auth0-react';
+
 const  NavigationBar= () => {
     return(
         
@@ -46,6 +48,30 @@ function NavItem(props){
         </li>
     );
 }
+
+const ProfileIsLogged = () => {
+    const { user, isAuthenticated } = useAuth0();
+
+    return(
+        isAuthenticated && (   
+        <div>
+            {user.name}
+        </div>
+        )
+    )
+}
+const ProfileNotLogged = () => {
+    const { user, isAuthenticated } = useAuth0();
+
+    return(
+        !isAuthenticated && (   
+        <div>
+            My Profile
+        </div>
+        )
+    )
+}
+
 function DropdownMenu(){
     const [cart, setCart] = useContext(CartContext)
     const totalPrice = cart.reduce((acc, curr) => acc+curr.price, 0);
@@ -81,7 +107,8 @@ function DropdownMenu(){
             <div className='menu'>
                
             <DropdownItem leftIcon={<PersonIcon />}>
-                My Profile
+                <ProfileNotLogged />
+                <ProfileIsLogged/>
             </DropdownItem>
             <DropdownItem
             leftIcon={<ShoppingCartIcon />}
