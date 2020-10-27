@@ -70,7 +70,6 @@ export default function MediaCard({prop, checked}) {
     const newCart = itemsToKeep.concat(itemsToRemove);
     setCart(newCart);
   }
-  
 
   return (
     

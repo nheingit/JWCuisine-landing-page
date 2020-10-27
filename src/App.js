@@ -5,9 +5,6 @@ import Header from './componets/Header';
 import PlaceToVisit from './componets/PlaceToVisit';
 import SocialFollow from './componets/SocialFollow';
 import {CartProvider, CartContext} from './componets/CartContext';
-import LoginButton from './componets/LoginButton';
-import LogoutButton from './componets/LogoutButton';
-import Profile from './componets/Profile';
 
 const useStyles = makeStyles((theme)=> ({
   root:{
