@@ -10,7 +10,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { ShoppingBasket } from '@material-ui/icons';
-import {CartContext} from './CartContext';
+import {CartContext, CartProvider} from '../hook/CartContext';
 import {useAuth0} from '@auth0/auth0-react';
 
 const  NavigationBar= () => {

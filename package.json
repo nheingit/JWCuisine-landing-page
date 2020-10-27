@@ -19,6 +19,7 @@
     "react-dom": "^16.13.1",
     "react-flippy": "^0.1.5",
     "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-scroll": "^1.8.1",
     "react-transition-group": "^4.4.1",

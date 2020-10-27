@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,7 +9,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ReactCardFlip from 'react-card-flip';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
-import { CartContext } from './CartContext';
+import { CartContext, CartProvider }  from '../hook/CartContext';
 const useStyles = makeStyles({
   root: {
     minHeight: '25vh',

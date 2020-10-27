@@ -43,7 +43,6 @@ const useStyles = makeStyles((theme)=> ({
 
 export default function SocialFollow(){
     const classes = useStyles();
-    const checked = useWindowPosition('footer');
     return(
         <div id='footer'>
             <Grid container spacing={0} className={classes.gridContainer}>
