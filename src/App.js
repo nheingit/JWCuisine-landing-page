@@ -1,11 +1,12 @@
 import React from 'react';
+import {Route, Switch} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
-import Header from './componets/Header';
-import PlaceToVisit from './componets/PlaceToVisit';
-import SocialFollow from './componets/SocialFollow';
+import Home from './views/home';
+import UserProfile from './views/user-profile';
 import {CartProvider, CartContext} from './hook/CartContext';
 import {useAuth0} from '@auth0/auth0-react';
+import PrivateRoute from './componets/PrivateRoute';
 
 const useStyles = makeStyles((theme)=> ({
   root:{
@@ -20,12 +21,14 @@ export default function(){
   const {isLoading} = useAuth0();
 
   return(
+    
     <CartProvider>
    <div className={classes.root}>
    <CssBaseline />
-  <Header />
-    <PlaceToVisit />
-    <SocialFollow />
+   <Switch>
+     <Route path="/"  exact component={Home}/>
+     <PrivateRoute path='/profile' component={UserProfile}/>
+   </Switch>
   </div>
   </CartProvider>
   );

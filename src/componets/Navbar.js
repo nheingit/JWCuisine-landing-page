@@ -1,8 +1,5 @@
 import React, {useState, useContext} from 'react';
 import '../index.css'
-/*{this is the format how to to import svg files as react componets
-import { ReactComponet as SvgIcon} from  './youriconfolder/yourpicture.svg';
-}*/
 import {CSSTransition} from 'react-transition-group';
 import SortIcon from "@material-ui/icons/Sort";
 import PersonIcon from '@material-ui/icons/Person';
@@ -12,6 +9,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { ShoppingBasket } from '@material-ui/icons';
 import {CartContext, CartProvider} from '../hook/CartContext';
 import {useAuth0} from '@auth0/auth0-react';
+import { Link } from 'react-router-dom';
 
 const  NavigationBar= () => {
     return(
@@ -41,7 +39,7 @@ function NavItem(props){
     }
     return(
         <li className='nav-item'>
-            <a href='#' className='icon-button' onClick={clickHandle}>
+            <a href='/' className='icon-button' onClick={clickHandle}>
                 {props.icon}
             </a>
             {open && props.children}
@@ -87,7 +85,7 @@ function DropdownMenu(){
             e.preventDefault();
             props.goToMenu && setActiveMenu(props.goToMenu)
         }
-        return( <a href='#' className='menu-item' onClick={clickHandle}>
+        return( <a href='/' className='menu-item' onClick={clickHandle}>
             <span className='icon-button'>{props.leftIcon}</span>
 
             {props.children}
@@ -105,8 +103,7 @@ function DropdownMenu(){
            onEnter={calcHeight}
            >
             <div className='menu'>
-               
-            <DropdownItem leftIcon={<PersonIcon />}>
+            <DropdownItem leftIcon={<PersonIcon /> }>
                 <ProfileNotLogged />
                 <ProfileIsLogged/>
             </DropdownItem>

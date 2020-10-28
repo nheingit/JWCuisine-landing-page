@@ -7,7 +7,7 @@ const LogoutButton = () => {
 
     return(
         isAuthenticated && (
-        <a href='something'  className='button1' onClick={logout}>
+        <a href='/'  className='button1' onClick={logout}>
             log out
         </a>
        )
