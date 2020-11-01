@@ -1,13 +1,14 @@
 const cors = require("cors");
+require('dotenv').config();
 const express = require("express");
 //TODO: add a stripe key
-const stripe = require("stripe")(process.env.STRIPE_KEY);
+const Stripe = require("stripe")
+const stripe = Stripe(process.env.STRIPE_KEY);
 const {v4: uuidv4 } = require("uuid");
 
 const app = express();
 
 //middleware
-
 app.use(express.json());
 app.use(cors());
 
@@ -18,21 +19,23 @@ app.get('/', (req, res)=>{
 })
 
 app.post("/checkout", (req, res)=>{
-    const {product, token} = req.body;
-    console.log("PRODUCT", product);
-    console.log("PRICE", product.price);
-    const idempotencyKey = uuid();
+    const {cart, token} = req.body;
+    const amount = cart.reduce((acc, curr) => acc+curr.price, 0);
+    console.log("PRODUCT", cart);
+    console.log("PRICE", amount);
+    const idempotencyKey = uuidv4();
+    const price = cart.reduce((acc, curr) => acc+curr.price, 0);
 
     return stripe.customers.create({
         email: token.email,
         source: token.id
     }).then(customer=>{
         stripe.charges.create({
-            amount: product.price * 100,
+            amount: amount * 100,
             currency: 'usd',
             customer: customer.id,
             receipt_email: token.email,
-            description: product.name,
+            description: cart.name,
             shipping: {
                 name: token.card.name,
                 address: {

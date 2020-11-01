@@ -79,6 +79,7 @@ export default function MediaCard({prop, checked}) {
     itemsToRemove.pop();
     const newCart = itemsToKeep.concat(itemsToRemove);
     setCart(newCart);
+    console.log(cart);
   }
 
   return (

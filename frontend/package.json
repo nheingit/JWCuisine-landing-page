@@ -28,6 +28,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-scroll": "^1.8.1",
+    "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^6.1.2",
     "react-transition-group": "^4.4.1",
     "stripe": "^8.114.0",

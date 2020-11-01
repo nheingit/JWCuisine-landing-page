@@ -10,6 +10,8 @@ import { ShoppingBasket } from '@material-ui/icons';
 import {CartContext, CartProvider} from '../hook/CartContext';
 import {useAuth0} from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
+import StripeCheckout from "react-stripe-checkout";
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const  NavigationBar= () => {
     return(
@@ -80,6 +82,30 @@ function DropdownMenu(){
     const [activeMenu, setActiveMenu] = useState('main'); //main menu, can be profile, settings, etc.
     const [menuHeight, setMenuHeight] = useState('null');
 
+    
+const makePayment = token =>{
+    const body = {
+        token,
+        cart
+    }
+    const headers = {
+        "Content-Type": "application/json"
+    }
+    
+    return fetch(`http://localhost:8282/checkout`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify(body)
+    }).then(response=> {
+        console.log("RESPONSE", response)
+        const{ status } = response
+        console.log("STATUS", status)
+    })
+    .catch(error=> console.log(error))
+
+
+}
+
     function calcHeight(el){
         const height= el.offsetHeight+16;
         setMenuHeight(height);
@@ -116,6 +142,16 @@ function DropdownMenu(){
             rightIcon={<ChevronRightIcon />}
             goToMenu='cart'> Cart
                 
+            </DropdownItem>
+            <DropdownItem leftIcon={<AttachMoneyIcon/>}>
+                <StripeCheckout
+                shippingAddress
+                billingAddress
+                stripeKey={process.env.REACT_APP_STRIPE_KEY}
+                token={makePayment}
+                name="JWCusine"
+                amount = {totalPrice * 100}
+                />
             </DropdownItem>
             </div>
           </CSSTransition>
