@@ -39,7 +39,12 @@ app.post("/checkout", (req, res)=>{
             shipping: {
                 name: token.card.name,
                 address: {
-                    country: token.card.address_country
+                    city: token.card.address_city,
+                    country: token.card.address_country,
+                    line1: token.card.address_line1,
+                    line2: token.card.address_line2,
+                    postal_code: token.card.address_zip,
+                    state: token.card.address_state
                 }
             }
         },{idempotencyKey})
