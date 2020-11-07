@@ -9,8 +9,12 @@ const {v4: uuidv4 } = require("uuid");
 const app = express();
 
 //middleware
+app.options('*', cors())
+
 app.use(express.json());
 app.use(cors());
+
+
 
 
 //routes
@@ -18,13 +22,30 @@ app.get('/', (req, res)=>{
     res.send("your app is working");
 })
 
+
+app.post("/billing", async (req, res)=>{
+    const user = req.body;
+    const customer = stripe.customers.create({
+        email: user.email,
+        description: "test user desc"
+    }).then((result)=>{
+        stripe.billingPortal.sessions.create({
+            customer: result.id,
+            return_url: user.url
+        }).then((response)=>{
+            res.redirect(response.url)
+        })
+    })
+
+});
+
+
 app.post("/checkout", (req, res)=>{
     const {cart, token} = req.body;
     const amount = cart.reduce((acc, curr) => acc+curr.price, 0);
     console.log("PRODUCT", cart);
     console.log("PRICE", amount);
     const idempotencyKey = uuidv4();
-    const price = cart.reduce((acc, curr) => acc+curr.price, 0);
 
     return stripe.customers.create({
         email: token.email,

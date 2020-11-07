@@ -7,6 +7,9 @@ import UserProfile from './views/user-profile';
 import {CartProvider, CartContext} from './hook/CartContext';
 import {useAuth0} from '@auth0/auth0-react';
 import PrivateRoute from './componets/PrivateRoute';
+import loginView from "./views/loginView"
+import meView from "./views/meView"
+import registerView from "./views/registerView"
 
 const useStyles = makeStyles((theme)=> ({
   root:{
@@ -27,6 +30,9 @@ export default function(){
    <CssBaseline />
    <Switch>
      <Route path="/"  exact component={Home}/>
+     <Route path="/login" component={loginView}/>
+     <Route path ="/register" component={registerView}/>
+     <Route path ="/me" component={meView}/>
      <PrivateRoute path='/profile' component={UserProfile}/>
    </Switch>
   </div>
