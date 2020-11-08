@@ -47,7 +47,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "schema:download": "apollo schema:download --endpoint=http://localhost:4000/graphql",
+    "codegen:generate": "apollo codegen:generate --queries=./src/**/*.tsx --localSchemaFile=./schema.json --outputFlat --target=typescript ./src/schemaTypes.ts",
+    "gen:types": "npm run schema:download && npm run codegen:generate"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -20,6 +20,10 @@ code {
   --speed: 500ms; 
   font-family: Nunito;
 }
+::placeholder{
+  color:black;
+  opacity: 1;
+}
 
 h2{
   color: #484a4d;

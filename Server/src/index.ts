@@ -24,7 +24,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-server.applyMiddleware({ app });
+server.applyMiddleware({ app, cors:{
+  credentials: true,
+  origin: "http://localhost:3000"
+} });
 
 app.listen({ port: 4000 }, () =>
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
