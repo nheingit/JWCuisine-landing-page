@@ -3,10 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import Home from './views/home';
-import UserProfile from './views/user-profile';
-import {CartProvider, CartContext} from './hook/CartContext';
-import {useAuth0} from '@auth0/auth0-react';
-import PrivateRoute from './componets/PrivateRoute';
+import {CartProvider} from './hook/CartContext';
 import loginView from "./views/loginView"
 import registerView from "./views/registerView"
 import Account from "./componets/Account";
@@ -23,7 +20,6 @@ const useStyles = makeStyles((theme)=> ({
 }));
 export default function(){
   const classes = useStyles();
-  const {isLoading} = useAuth0();
 
   return(
     
@@ -36,9 +32,7 @@ export default function(){
      <Route path="/login" component={loginView}/>
      <Route path ="/register" component={registerView}/>
      <Route path="/account" component={Account}/>
-     <PrivateRoute path='/profile' component={UserProfile}/>
    </Switch>
-   
   </div> 
   <SocialFollow/>
   

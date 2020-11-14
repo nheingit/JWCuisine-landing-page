@@ -7,8 +7,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { ShoppingBasket } from '@material-ui/icons';
-import {CartContext, CartProvider} from '../hook/CartContext';
-import {useAuth0} from '@auth0/auth0-react';
+import {CartContext}  from '../hook/CartContext';
 import { Link } from 'react-router-dom';
 import StripeCheckout from "react-stripe-checkout";
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
@@ -25,14 +24,14 @@ const  NavigationBar= () => {
 
     );
 }
-
-function NavBar(props){
-    return (
-        <nav>
-            <ul className='navbar-nav'>{ props.children }</ul>
-        </nav>
-    );
-}
+//Navbar functionality in case I want to add more than just the one Icon
+//function NavBar(props){
+    //return (
+        //<nav>
+            //<ul className='navbar-nav'>{ props.children }</ul>
+        //</nav>
+    //);
+//}
 function NavItem(props){
     const [open, setOpen] = useState(false);
     function clickHandle(e){
@@ -49,32 +48,7 @@ function NavItem(props){
     );
 }
 
-const ProfileIsLogged = () => {
-    const { user, isAuthenticated } = useAuth0();
 
-    return(
-        isAuthenticated && (   
-        <div>
-            <Link to="/profile" replace>
-            {user.name}
-            </Link>
-        </div>
-        )
-    )
-}
-const ProfileNotLogged = () => {
-    const { user, isAuthenticated } = useAuth0();
-
-    return(
-        !isAuthenticated && ( 
-        <Link to="/profile" replace> 
-            <div>
-            My Profile
-            </div>
-        </Link>
-        )
-    )
-}
 
 function DropdownMenu(){
     const [cart, setCart] = useContext(CartContext)

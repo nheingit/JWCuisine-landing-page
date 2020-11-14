@@ -3,7 +3,7 @@ import {gql} from "apollo-boost";
 import { Query } from "react-apollo";
 
 import {MeQuery} from "../schemaTypes"
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import SubscribeUser from "./SubscribeUser";
 
 const meQuery = gql`

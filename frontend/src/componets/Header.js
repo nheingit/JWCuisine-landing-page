@@ -5,7 +5,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
 import NavigationBar from './Navbar';
 import LoginButton from './LoginButton';
-import {history} from 'react-router-dom';
 const useStyles = makeStyles((theme)=> ({
   root:{
     display: 'flex',

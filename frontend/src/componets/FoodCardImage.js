@@ -9,7 +9,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ReactCardFlip from 'react-card-flip';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
-import { CartContext, CartProvider }  from '../hook/CartContext';
+import { CartContext}  from '../hook/CartContext';
 const useStyles = makeStyles({
   root: {
     minHeight: '25vh',

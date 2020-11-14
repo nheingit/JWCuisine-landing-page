@@ -21,12 +21,6 @@ query MeQuery{
 
 
 export default function LoginButton(){
-    const divStyle = {
-        fontFamily: "Nunito",
-        color: "black",
-        fontSize: "16px"
-    }
-
     return(
         <Query<MeQuery> fetchPolicy="network-only" query={meQuery}>
             {({data, loading})=>{
