@@ -5,8 +5,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
 import NavigationBar from './Navbar';
 import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
-import Profile from './Profile';
+import {history} from 'react-router-dom';
 const useStyles = makeStyles((theme)=> ({
   root:{
     display: 'flex',
@@ -15,6 +14,14 @@ const useStyles = makeStyles((theme)=> ({
     height: '80vh',
     fontFamily: 'Nunito, Monospace'
   },
+   applicationbar:{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '20vh',
+    fontFamily: 'Nunito, Monospace'
+  },
+  
   appbar:{
     background: 'none',
     maxWidth: '100vw',
@@ -53,21 +60,38 @@ const useStyles = makeStyles((theme)=> ({
   }
 
 }));
+
+export function ApplicationBar(){
+    const classes = useStyles();
+  const [checked, setChecked] = useState(false);
+  useEffect(()=> {setChecked(true);},[])
+
+  return(
+    <div className={classes.applicationbar}>
+      <AppBar className={classes.appbar} elevation={0}>
+        <Toolbar className={classes.appbarWrapper}>
+        <LoginButton/>
+          <h1 className={classes.appbarTitle}>
+            <a href="/" className={classes.appbarTitle}>
+             <span className={classes.headerText}>J.W.<span className={classes.textColorRed}>Cuisine</span></span>
+            </a> 
+         </h1>
+        <NavigationBar />
+        </Toolbar>
+      </AppBar>
+    </div>
+  )
+  }
+
 export default function Header(){
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
   useEffect(()=> {setChecked(true);},[])
+
+  
+
   return (
   <div className={classes.root} id='header'>
-
-<AppBar className={classes.appbar} elevation={0}>
-  <Toolbar className={classes.appbarWrapper}>
-  <LoginButton/>
-  <LogoutButton/>
-    <h1 className={classes.appbarTitle}><span className={classes.headerText}>J.W.<span className={classes.textColorRed}>Cuisine</span></span></h1>
-    <NavigationBar />
-  </Toolbar>
-</AppBar>
 
 <Collapse in={checked}
 {...(checked ? { timeout: 1000 } : {})} collapsedHeight={50}>

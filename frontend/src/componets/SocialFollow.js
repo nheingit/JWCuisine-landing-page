@@ -6,9 +6,14 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import {makeStyles} from "@material-ui/core/styles";
-import useWindowPosition from '../hook/useWindowPosition';
 
 const useStyles = makeStyles((theme)=> ({
+    footer:{
+        position: "",
+        bottom: "0px",
+        width: "100%",
+        height: "2.5rem",
+    },
     gridContainer:{
         flexDirection: 'row',
         backgroundColor: '#1c1b1b',
@@ -44,7 +49,7 @@ const useStyles = makeStyles((theme)=> ({
 export default function SocialFollow(){
     const classes = useStyles();
     return(
-        <div id='footer'>
+        <div className={classes.footer} id='footer'>
             <Grid container spacing={0} className={classes.gridContainer}>
                 <Grid>
                     <IconButton>

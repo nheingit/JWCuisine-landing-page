@@ -11,6 +11,12 @@ code {
     monospace;
 }
 
+p{
+  font-family: Nunito;
+  color: #484a4d;
+  margin: 0px;
+  font-size: medium;
+}
 
 :root {
   --bg-accent: #484a4d;

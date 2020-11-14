@@ -124,6 +124,17 @@ const makePayment = token =>{
         </a>
         );
     }
+     function DropdownItemProfile(props){
+       
+        return( <a href='/account' className='menu-item' onClick={<Link to="/account"/>}>
+            <span className='icon-button'>{props.leftIcon}</span>
+
+            {props.children}
+
+            <span className='icon-right'>{props.rightIcon}</span>
+        </a>
+        );
+    }
     return(
         <div className='dropdown' style={{height: menuHeight}}>
           <CSSTransition in={activeMenu === 'main'}
@@ -133,10 +144,9 @@ const makePayment = token =>{
            onEnter={calcHeight}
            >
             <div className='menu'>
-            <DropdownItem leftIcon={<PersonIcon /> }>
-                <ProfileNotLogged />
-                <ProfileIsLogged/>
-            </DropdownItem>
+            <DropdownItemProfile leftIcon={<PersonIcon /> }>
+                <div>My Profile</div>
+            </DropdownItemProfile>
             <DropdownItem
             leftIcon={<ShoppingCartIcon />}
             rightIcon={<ChevronRightIcon />}

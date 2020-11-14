@@ -8,11 +8,20 @@ const {v4: uuidv4 } = require("uuid");
 
 const app = express();
 
-//middleware
-app.options('*', cors())
+const corsConfig = {
+  origin: 'http://localhost:3000',
+  preflightContinue: true
 
+}
+
+//middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsConfig));
+app.use((req, res, next)=>{
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  next();
+})
 
 
 
@@ -23,21 +32,26 @@ app.get('/', (req, res)=>{
 })
 
 
-app.post("/billing", async (req, res)=>{
-    const user = req.body;
-    const customer = stripe.customers.create({
-        email: user.email,
-        description: "test user desc"
-    }).then((result)=>{
-        stripe.billingPortal.sessions.create({
-            customer: result.id,
-            return_url: user.url
-        }).then((response)=>{
-            res.redirect(response.url)
-        })
-    })
-
+const session = await stripe.customer.create({
+  description: "test customer"
+}).then((customer)=>{
+  stripe.checkout.sessions.create({
+  customer: customer.id,
+  payment_method_types: ['card'],
+  line_items: [{
+    price: 'price_1HmAziJIQLh7k5Y65s1Hyupcq4',
+    quantity: 1,
+  }, {
+    price: 'price_1HmAzHJIQLh7k5Y6ZNUmI5q4',
+    quantity: 1,
+  }],
+  success_url: 'https://localhost:3000',
+  cancel_url: 'https://localhost:3000',
 });
+})
+ 
+  
+
 
 
 app.post("/checkout", (req, res)=>{

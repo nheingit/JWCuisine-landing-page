@@ -8,15 +8,17 @@ import {CartProvider, CartContext} from './hook/CartContext';
 import {useAuth0} from '@auth0/auth0-react';
 import PrivateRoute from './componets/PrivateRoute';
 import loginView from "./views/loginView"
-import profileView from "./views/profileView"
 import registerView from "./views/registerView"
-
+import Account from "./componets/Account";
+import {ApplicationBar} from "./componets/Header";
+import SocialFollow from './componets/SocialFollow';
 const useStyles = makeStyles((theme)=> ({
   root:{
     minHeight: '100vh',
     backgroundImage:`url(${process.env.PUBLIC_URL+ "./assets/bg.jpg"})`,
     backgroundRepeat: "no-repeat",
     backgroundSize:"cover",
+    position: "relative",
   },
 }));
 export default function(){
@@ -28,14 +30,19 @@ export default function(){
     <CartProvider>
    <div className={classes.root}>
    <CssBaseline />
+   <ApplicationBar/>
    <Switch>
      <Route path="/"  exact component={Home}/>
      <Route path="/login" component={loginView}/>
      <Route path ="/register" component={registerView}/>
-     <Route path ="/myprofile" component={profileView}/>
+     <Route path="/account" component={Account}/>
      <PrivateRoute path='/profile' component={UserProfile}/>
    </Switch>
-  </div>
+   
+  </div> 
+  <SocialFollow/>
+  
+ 
   </CartProvider>
   );
   }

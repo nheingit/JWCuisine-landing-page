@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {useAuth0} from '@auth0/auth0-react';
-
+import useScript from "../hook/useScript";
+import Stripe from "stripe";
 const User = ()=>{
   const {user, isAuthenticated, isLoading} = useAuth0();
   if(isLoading){
@@ -20,14 +21,19 @@ const User = ()=>{
 
 }
 
+
 const UserProfile = ()=>(
   <div>
     {User}
     
       <Link to="/" replace>Home</Link>
-      <form method="POST" action="http://localhost:8282/billing">
-           <button type="submit">Manage billing</button>
-      </form>
+
+     
+
+     
+
+           <button onClick={console.log("hello billing")}>Manage billing</button>
+      
 </div> 
 )
 export default UserProfile;
