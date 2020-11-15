@@ -3,18 +3,9 @@ import { useHistory } from "react-router-dom";
 import { Mutation } from "react-apollo";
 import {gql} from "apollo-boost";
 
-import {MeQuery} from "../schemaTypes";
 import { LoginUserMutation, LoginUserMutationVariables } from "../schemaTypes";
+import {meQuery} from "../componets/graphql/me";
 
-const meQuery = gql`
-query MeQuery{
-    me {
-    email
-    id
-    type
-        }
-}
-`;
 
 const loginMutation = gql`
 mutation LoginUserMutation($email: String!, $password: String!){

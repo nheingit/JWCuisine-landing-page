@@ -2,9 +2,9 @@ import * as React from 'react';
 import StripeCheckout from "react-stripe-checkout";
 import {Mutation} from "react-apollo";
 import { gql } from 'apollo-boost';
-import {createSubscriptionMutation, createSubscriptionMutationVariables} from "../schemaTypes";
+import {CreateSubscriptionMutation, CreateSubscriptionMutationVariables} from "../schemaTypes";
 
-const CreateSubscriptionMutation = gql`
+const createSubscriptionMutation = gql`
     mutation CreateSubscriptionMutation($source: String!){
         createSubscription(source: $source){
             id
@@ -15,8 +15,8 @@ const CreateSubscriptionMutation = gql`
 `;
 const SubscribeUser = () =>{
     return(
-    <Mutation<createSubscriptionMutation, createSubscriptionMutationVariables>
-        mutation={CreateSubscriptionMutation}> 
+    <Mutation<CreateSubscriptionMutation, CreateSubscriptionMutationVariables>
+        mutation={createSubscriptionMutation}> 
         {mutate =>(
         <StripeCheckout
         stripeKey={process.env.REACT_APP_STRIPE_KEY!}

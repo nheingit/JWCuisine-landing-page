@@ -1,20 +1,11 @@
 import React from "react";
-import {gql} from "apollo-boost";
 import { Query } from "react-apollo";
+import { Redirect } from "react-router-dom";
 
 import {MeQuery} from "../schemaTypes"
-import { Redirect } from "react-router-dom";
 import SubscribeUser from "./SubscribeUser";
-
-const meQuery = gql`
-query MeQuery{
-    me {
-    email
-    id
-    type
-        }
-}
-`;
+import {meQuery} from "./graphql/me";
+import ChangeCreditCard from './ChangeCreditCard';
 
 export default function Account(){
     return(
@@ -40,7 +31,7 @@ export default function Account(){
                     
             }
         //if(data.me.type ==="paid")
-        return<div>{data.me.type}</div>
+        return <ChangeCreditCard/>
 
 
     }}

@@ -1,23 +1,10 @@
 import React from 'react';
-import '../index.css';
-
-
 import {gql} from "apollo-boost";
 import { Query } from "react-apollo";
 
-import {MeQuery} from "../schemaTypes"
-
-const meQuery = gql`
-query MeQuery{
-    me {
-    email
-    id
-    type
-        }
-}
-`;
-
-
+import {MeQuery} from "../schemaTypes";
+import '../index.css';
+import {meQuery} from "./graphql/me";
 
 
 export default function LoginButton(){
