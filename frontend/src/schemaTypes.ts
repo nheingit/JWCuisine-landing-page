@@ -2,23 +2,6 @@
 /* eslint-disable */
 // @generated
 // This file was automatically generated and should not be edited.
-// ====================================================
-// GraphQL query operation: MeQuery
-// ====================================================
-
-export interface MeQuery_me {
-  id: string;
-  email: string;
-  type: string;
-  ccLast4: string | null;
-}
-
-export interface MeQuery {
-  me: MeQuery_me | null;
-}
-
-/* tslint:disable */
-// This file was automatically generated and should not be edited.
 
 // ====================================================
 // GraphQL mutation operation: ChangeCreditCardMutation
@@ -29,6 +12,7 @@ export interface ChangeCreditCardMutation_changeCreditCard {
   id: string;
   email: string;
   type: string;
+  ccLast4: string | null;
 }
 
 export interface ChangeCreditCardMutation {
@@ -37,6 +21,28 @@ export interface ChangeCreditCardMutation {
 
 export interface ChangeCreditCardMutationVariables {
   source: string;
+  ccLast4: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: MeQuery
+// ====================================================
+
+export interface MeQuery_me {
+  __typename: "User";
+  id: string;
+  email: string;
+  type: string;
+  ccLast4: string | null;
+}
+
+export interface MeQuery {
+  me: MeQuery_me | null;
 }
 
 /* tslint:disable */
@@ -53,6 +59,7 @@ export interface CreateSubscriptionMutation_createSubscription {
   id: string;
   email: string;
   type: string;
+  ccLast4: string | null;
 }
 
 export interface CreateSubscriptionMutation {
@@ -61,6 +68,7 @@ export interface CreateSubscriptionMutation {
 
 export interface CreateSubscriptionMutationVariables {
   source: string;
+  ccLast4: string;
 }
 
 /* tslint:disable */
@@ -77,6 +85,7 @@ export interface LoginUserMutation_login {
   id: string;
   email: string;
   type: string;
+  ccLast4: string | null;
 }
 
 export interface LoginUserMutation {
@@ -104,6 +113,23 @@ export interface RegisterUserMutation {
 export interface RegisterUserMutationVariables {
   email: string;
   password: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL fragment: UserInfo
+// ====================================================
+
+export interface UserInfo {
+  __typename: "User";
+  id: string;
+  email: string;
+  type: string;
+  ccLast4: string | null;
 }
 
 /* tslint:disable */

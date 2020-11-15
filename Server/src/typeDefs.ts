@@ -5,6 +5,7 @@ type User {
     id: ID!
     email: String!
     type: String!
+    ccLast4: String
 }
 type Query {
     me: User
@@ -12,8 +13,9 @@ type Query {
 type Mutation{
     register(email: String!, password: String!): Boolean!
     login(email: String!, password: String!): User
-    createSubscription(source: String!): User
-    changeCreditCard(source: String!):User
+    createSubscription(source: String!, ccLast4: String!): User
+    changeCreditCard(source: String!, ccLast4: String!):User
+    cancelSubscription: User
     
 }
 `;

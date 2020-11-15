@@ -37,7 +37,7 @@ export const resolvers: IResolvers = {
          return user;
      },
 
-     createSubscription:async (_, {source}, {req})=>{
+     createSubscription:async (_, {source, ccLast4}, {req})=>{
         if(!req.session || !req.session.userId){
             throw new Error("not authenticated");
         }
@@ -62,6 +62,7 @@ export const resolvers: IResolvers = {
         
         user.priceId = subscription.id;
         user.stripeId = customer.id;
+        user.ccLast4  = ccLast4;
         user.type = "paid";
         await user.save();
         return user;
@@ -70,7 +71,7 @@ export const resolvers: IResolvers = {
         },
 
 
-      changeCreditCard:async (_, {source}, {req})=>{
+      changeCreditCard:async (_, {source, ccLast4}, {req})=>{
         if(!req.session || !req.session.userId){
             throw new Error("not authenticated");
         }
@@ -82,10 +83,35 @@ export const resolvers: IResolvers = {
 
         await stripe.customers.update(user.stripeId, {source});
 
+        user.ccLast4 = ccLast4
+
         await user.save();
         return user;
         
 
-        }
+        },
+
+        //TODO: Add functionality to end subscription
+    //cancelSubscription: async(_,__, {req}) =>{
+       //if(!req.session || !req.session.userId){
+            //throw new Error("not authenticated");
+        //}
+        //const user = await User.findOne(req.session.userId);
+
+        //if(!user || !user.stripeId || user.type !== "paid"){
+            //throw new Error();
+        //}
+
+        //const stripeCustomer = await stripe.customers.retrieve(user.stripeId);
+
+        //stripeCustomer
+        //await stripe.customers.update(user.stripeId, {source});
+
+        //user.ccLast4 = ccLast4
+
+        //await user.save();
+        //return user;
+        
+         //}
     }
 }

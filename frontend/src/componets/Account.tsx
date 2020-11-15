@@ -31,7 +31,12 @@ export default function Account(){
                     
             }
         //if(data.me.type ==="paid")
-        return <ChangeCreditCard/>
+        return (
+        <div>
+            <div>the last 4 digits of your card are: {data.me.ccLast4}</div>
+            <ChangeCreditCard/>
+        </div>
+        )
 
 
     }}
