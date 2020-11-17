@@ -46,22 +46,31 @@ export const resolvers: IResolvers = {
         if(!user){
             throw new Error(); // should not happen as there is no way to delete users
         }
-
+        
+        let stripeId = user.stripeId
+        if(!stripeId){
         const customer =  await stripe.customers.create({
             email: user.email,
             source,
             
         });
+        stripeId = customer.id
+        
+        } else {
+            await stripe.customers.update(stripeId, {
+                source
+            });
+        }
 
         const subscription = await stripe.subscriptions.create({
-            customer: customer.id,
+            customer: stripeId,
             items: [{
-                plan: "price_1HmAzHJIQLh7k5Y6ZNUmI5q4"
+                plan: process.env.STRIPE_SUBSCRIPTION
             }]
         })
         
         user.priceId = subscription.id;
-        user.stripeId = customer.id;
+        user.stripeId = stripeId;
         user.ccLast4  = ccLast4;
         user.type = "paid";
         await user.save();
@@ -92,26 +101,30 @@ export const resolvers: IResolvers = {
         },
 
         //TODO: Add functionality to end subscription
-    //cancelSubscription: async(_,__, {req}) =>{
-       //if(!req.session || !req.session.userId){
-            //throw new Error("not authenticated");
-        //}
-        //const user = await User.findOne(req.session.userId);
+    cancelSubscription: async(_, __, {req}) =>{
+      if(!req.session || !req.session.userId){
+            throw new Error("not authenticated");
+        }
+        const user = await User.findOne(req.session.userId);
 
-        //if(!user || !user.stripeId || user.type !== "paid"){
-            //throw new Error();
-        //}
+        if(!user || !user.stripeId || user.type !== "paid"){
+            throw new Error("no subscription to cancel");
+        }
 
-        //const stripeCustomer = await stripe.customers.retrieve(user.stripeId);
+        const stripeCustomer = await await stripe.customers.retrieve(user.stripeId);
 
-        //stripeCustomer
-        //await stripe.customers.update(user.stripeId, {source});
-
-        //user.ccLast4 = ccLast4
-
-        //await user.save();
-        //return user;
+        const customerSubscription = await stripe.subscriptions.retrieve(user.priceId);
         
-         //}
+        await stripe.subscriptions.del(customerSubscription.id);
+
+        if(!stripeCustomer.deleted){
+            await stripe.customers.deleteSource(user.stripeId, stripeCustomer.default_source as string)
+        }
+
+        user.type= "free-trial";
+        await user.save();
+
+        return user;
+         }
     }
 }

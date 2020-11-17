@@ -30,6 +30,7 @@ const handleChange:any = (e:any)=>{
     setValues(prevState => ({...prevState, [name]:value}));
 };
 
+
 return(<Mutation<LoginUserMutation, LoginUserMutationVariables>
     update={(Cache, {data}) =>{
         if(!data ||!data.login){
@@ -75,6 +76,10 @@ return(<Mutation<LoginUserMutation, LoginUserMutationVariables>
                     console.log(response)
                     history.push("/account")
                 }}>Login</button>
+                    <b>
+                      Don't have an account? <br/>
+                      Register <a href='/register'  className='button7'> here
+                </a></b>
             </div>
         </div>)}
         </Mutation>

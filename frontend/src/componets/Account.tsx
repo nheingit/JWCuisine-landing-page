@@ -6,8 +6,16 @@ import {MeQuery} from "../schemaTypes"
 import SubscribeUser from "./SubscribeUser";
 import {meQuery} from "./graphql/me";
 import ChangeCreditCard from './ChangeCreditCard';
+import CancelSubscription from "./CancelSubscription";
 
 export default function Account(){
+
+    const subscriptionButtonStyle = {
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        display: "grid"
+    }
+
     return(
     <Query<MeQuery> fetchPolicy="network-only" query={meQuery}>
         {({data, loading})=>{
@@ -34,7 +42,10 @@ export default function Account(){
         return (
         <div>
             <div>the last 4 digits of your card are: {data.me.ccLast4}</div>
-            <ChangeCreditCard/>
+            <div style={subscriptionButtonStyle}>
+                <ChangeCreditCard/>
+                <CancelSubscription/>
+            </div>
         </div>
         )
 
