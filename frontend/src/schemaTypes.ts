@@ -7,12 +7,23 @@
 // GraphQL mutation operation: CancelSubscriptionMutation
 // ====================================================
 
+export interface CancelSubscriptionMutation_cancelSubscription_shippingAddress {
+  __typename: "ShippingAddress";
+  city: string;
+  country: string;
+  line1: string;
+  line2: string;
+  postal_code: string;
+  state: string;
+}
+
 export interface CancelSubscriptionMutation_cancelSubscription {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
+  shippingAddress: (CancelSubscriptionMutation_cancelSubscription_shippingAddress | null)[] | null;
 }
 
 export interface CancelSubscriptionMutation {
@@ -28,12 +39,23 @@ export interface CancelSubscriptionMutation {
 // GraphQL mutation operation: ChangeCreditCardMutation
 // ====================================================
 
+export interface ChangeCreditCardMutation_changeCreditCard_shippingAddress {
+  __typename: "ShippingAddress";
+  city: string;
+  country: string;
+  line1: string;
+  line2: string;
+  postal_code: string;
+  state: string;
+}
+
 export interface ChangeCreditCardMutation_changeCreditCard {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
+  shippingAddress: (ChangeCreditCardMutation_changeCreditCard_shippingAddress | null)[] | null;
 }
 
 export interface ChangeCreditCardMutation {
@@ -43,6 +65,7 @@ export interface ChangeCreditCardMutation {
 export interface ChangeCreditCardMutationVariables {
   source: string;
   ccLast4: string;
+  shippingAddress: ShippingAddressInput;
 }
 
 /* tslint:disable */
@@ -54,12 +77,23 @@ export interface ChangeCreditCardMutationVariables {
 // GraphQL query operation: MeQuery
 // ====================================================
 
+export interface MeQuery_me_shippingAddress {
+  __typename: "ShippingAddress";
+  city: string;
+  country: string;
+  line1: string;
+  line2: string;
+  postal_code: string;
+  state: string;
+}
+
 export interface MeQuery_me {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
+  shippingAddress: (MeQuery_me_shippingAddress | null)[] | null;
 }
 
 export interface MeQuery {
@@ -75,12 +109,23 @@ export interface MeQuery {
 // GraphQL mutation operation: CreateSubscriptionMutation
 // ====================================================
 
+export interface CreateSubscriptionMutation_createSubscription_shippingAddress {
+  __typename: "ShippingAddress";
+  city: string;
+  country: string;
+  line1: string;
+  line2: string;
+  postal_code: string;
+  state: string;
+}
+
 export interface CreateSubscriptionMutation_createSubscription {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
+  shippingAddress: (CreateSubscriptionMutation_createSubscription_shippingAddress | null)[] | null;
 }
 
 export interface CreateSubscriptionMutation {
@@ -90,6 +135,7 @@ export interface CreateSubscriptionMutation {
 export interface CreateSubscriptionMutationVariables {
   source: string;
   ccLast4: string;
+  shippingAddress: ShippingAddressInput;
 }
 
 /* tslint:disable */
@@ -101,12 +147,23 @@ export interface CreateSubscriptionMutationVariables {
 // GraphQL mutation operation: LoginUserMutation
 // ====================================================
 
+export interface LoginUserMutation_login_shippingAddress {
+  __typename: "ShippingAddress";
+  city: string;
+  country: string;
+  line1: string;
+  line2: string;
+  postal_code: string;
+  state: string;
+}
+
 export interface LoginUserMutation_login {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
+  shippingAddress: (LoginUserMutation_login_shippingAddress | null)[] | null;
 }
 
 export interface LoginUserMutation {
@@ -145,12 +202,23 @@ export interface RegisterUserMutationVariables {
 // GraphQL fragment: UserInfo
 // ====================================================
 
+export interface UserInfo_shippingAddress {
+  __typename: "ShippingAddress";
+  city: string;
+  country: string;
+  line1: string;
+  line2: string;
+  postal_code: string;
+  state: string;
+}
+
 export interface UserInfo {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
+  shippingAddress: (UserInfo_shippingAddress | null)[] | null;
 }
 
 /* tslint:disable */
@@ -161,6 +229,15 @@ export interface UserInfo {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+export interface ShippingAddressInput {
+  city: string;
+  country: string;
+  line1: string;
+  line2?: string | null;
+  postal_code: string;
+  state: string;
+}
 
 //==============================================================
 // END Enums and Input Objects

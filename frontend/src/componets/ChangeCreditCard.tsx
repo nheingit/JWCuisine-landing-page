@@ -7,8 +7,8 @@ import {ChangeCreditCardMutation, ChangeCreditCardMutationVariables} from "../sc
 import '../index.css';
 
 const changeCreditCardMutation = gql`
-    mutation ChangeCreditCardMutation($source: String!, $ccLast4: String!){
-        changeCreditCard(source: $source, ccLast4: $ccLast4) {
+    mutation ChangeCreditCardMutation($source: String!, $ccLast4: String!, $shippingAddress: ShippingAddressInput!){
+        changeCreditCard(source: $source, ccLast4: $ccLast4, shippingAddress: $shippingAddress) {
             ...UserInfo
         }
     }
@@ -25,7 +25,16 @@ const ChangeCreditCard = () =>{
         shippingAddress
         token={async token =>{
             const response = await mutate({
-                variables: {source: token.id, ccLast4: token.card.last4}
+                variables: {source: token.id, ccLast4: token.card.last4,
+                shippingAddress: {
+                        city: token.card.address_city!,
+                        country: token.card.address_country!,
+                        line1: token.card.address_line1!,
+                        line2: token.card.address_line2,
+                        postal_code: token.card.address_zip!,
+                        state: token.card.address_state!,
+                    }
+                }
             });
             console.log(response);
         }}

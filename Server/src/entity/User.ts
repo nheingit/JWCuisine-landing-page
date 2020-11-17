@@ -6,6 +6,9 @@ export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column("text", {nullable: true})
+    shippingAddress: object;
+;
     @Column("text",{nullable: true})
     priceId: string;
 

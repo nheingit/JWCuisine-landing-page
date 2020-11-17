@@ -37,7 +37,7 @@ export const resolvers: IResolvers = {
          return user;
      },
 
-     createSubscription:async (_, {source, ccLast4}, {req})=>{
+     createSubscription:async (_, {source, ccLast4, shippingAddress}, {req})=>{
         if(!req.session || !req.session.userId){
             throw new Error("not authenticated");
         }
@@ -52,13 +52,27 @@ export const resolvers: IResolvers = {
         const customer =  await stripe.customers.create({
             email: user.email,
             source,
-            
+            address: {
+                    city: shippingAddress.city,
+                    line1: shippingAddress.line1,
+                    line2: shippingAddress.line2,
+                    postal_code: shippingAddress.postal_code,
+                    state: shippingAddress.state
+                }
+
         });
         stripeId = customer.id
         
         } else {
             await stripe.customers.update(stripeId, {
-                source
+                source,
+                address: {
+                    city: shippingAddress.city,
+                    line1: shippingAddress.line1,
+                    line2: shippingAddress.line2,
+                    postal_code: shippingAddress.postal_code,
+                    state: shippingAddress.state
+                }
             });
         }
 
@@ -69,6 +83,7 @@ export const resolvers: IResolvers = {
             }]
         })
         
+        user.shippingAddress = [shippingAddress];
         user.priceId = subscription.id;
         user.stripeId = stripeId;
         user.ccLast4  = ccLast4;
