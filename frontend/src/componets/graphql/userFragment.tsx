@@ -6,13 +6,6 @@ export const userFragment = gql`
         email
         type
         ccLast4
-        shippingAddress {
-            city
-            country
-            line1
-            line2
-            postal_code
-            state
-        }
+        postalCode
     }
 `;

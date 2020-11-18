@@ -23,16 +23,17 @@ const ChangeCreditCard = () =>{
         stripeKey={process.env.REACT_APP_STRIPE_KEY!}
         billingAddress
         shippingAddress
-        token={async token =>{
+        //@ts-ignore
+        token={async (token, address) =>{
             const response = await mutate({
                 variables: {source: token.id, ccLast4: token.card.last4,
                 shippingAddress: {
-                        city: token.card.address_city!,
-                        country: token.card.address_country!,
-                        line1: token.card.address_line1!,
-                        line2: token.card.address_line2,
-                        postal_code: token.card.address_zip!,
-                        state: token.card.address_state!,
+                        city: JSON.stringify(address.shipping_address_city),
+                        country: JSON.stringify(address.shipping_address_county),
+                        line1: JSON.stringify(address.shipping_address_line1),
+                        line2: JSON.stringify(address.shipping_address_line2),
+                        postal_code: JSON.stringify(address.shipping_address_zip),
+                        state: JSON.stringify(address.shipping_address_state),
                     }
                 }
             });

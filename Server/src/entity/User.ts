@@ -7,8 +7,8 @@ export class User extends BaseEntity {
     id: number;
 
     @Column("text", {nullable: true})
-    shippingAddress: object;
-;
+    postalCode: string | null;
+
     @Column("text",{nullable: true})
     priceId: string;
 

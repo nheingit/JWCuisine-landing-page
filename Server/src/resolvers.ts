@@ -46,7 +46,8 @@ export const resolvers: IResolvers = {
         if(!user){
             throw new Error(); // should not happen as there is no way to delete users
         }
-        
+        // TODO: Don't create subscription if not in zipcode
+        let postalCode = user.postalCode;
         let stripeId = user.stripeId
         if(!stripeId){
         const customer =  await stripe.customers.create({
@@ -61,6 +62,7 @@ export const resolvers: IResolvers = {
                 }
 
         });
+        postalCode = customer.address!.postal_code
         stripeId = customer.id
         
         } else {
@@ -73,9 +75,11 @@ export const resolvers: IResolvers = {
                     postal_code: shippingAddress.postal_code,
                     state: shippingAddress.state
                 }
+            }).then(stripeCustomer => {
+                postalCode = stripeCustomer.address!.postal_code
             });
         }
-
+        
         const subscription = await stripe.subscriptions.create({
             customer: stripeId,
             items: [{
@@ -83,11 +87,12 @@ export const resolvers: IResolvers = {
             }]
         })
         
-        user.shippingAddress = [shippingAddress];
+        user.postalCode = postalCode;
         user.priceId = subscription.id;
         user.stripeId = stripeId;
         user.ccLast4  = ccLast4;
         user.type = "paid";
+        console.log(user);
         await user.save();
         return user;
         
@@ -95,7 +100,8 @@ export const resolvers: IResolvers = {
         },
 
 
-      changeCreditCard:async (_, {source, ccLast4}, {req})=>{
+      changeCreditCard:async (_, {source, ccLast4, shippingAddress}, {req})=>{
+        
         if(!req.session || !req.session.userId){
             throw new Error("not authenticated");
         }
@@ -104,9 +110,23 @@ export const resolvers: IResolvers = {
         if(!user || !user.stripeId || user.type !== "paid"){
             throw new Error();
         }
+        let postalCode = user.postalCode;
+        //TODO: Create error if postal code isnt in valid area
 
-        await stripe.customers.update(user.stripeId, {source});
-
+        await stripe.customers.update(user.stripeId, {
+            source,
+            address: {
+                    city: shippingAddress.city,
+                    line1: shippingAddress.line1,
+                    line2: shippingAddress.line2,
+                    postal_code: shippingAddress.postal_code,
+                    state: shippingAddress.state
+                }
+             }).then(stripeCustomer => {
+                postalCode = stripeCustomer.address!.postal_code
+            });
+;
+        user.postalCode = postalCode;
         user.ccLast4 = ccLast4
 
         await user.save();

@@ -9,12 +9,12 @@
 
 export interface CancelSubscriptionMutation_cancelSubscription_shippingAddress {
   __typename: "ShippingAddress";
-  city: string;
-  country: string;
-  line1: string;
-  line2: string;
-  postal_code: string;
-  state: string;
+  city: string | null;
+  country: string | null;
+  line1: string | null;
+  line2: string | null;
+  postal_code: string | null;
+  state: string | null;
 }
 
 export interface CancelSubscriptionMutation_cancelSubscription {
@@ -41,12 +41,12 @@ export interface CancelSubscriptionMutation {
 
 export interface ChangeCreditCardMutation_changeCreditCard_shippingAddress {
   __typename: "ShippingAddress";
-  city: string;
-  country: string;
-  line1: string;
-  line2: string;
-  postal_code: string;
-  state: string;
+  city: string | null;
+  country: string | null;
+  line1: string | null;
+  line2: string | null;
+  postal_code: string | null;
+  state: string | null;
 }
 
 export interface ChangeCreditCardMutation_changeCreditCard {
@@ -79,12 +79,12 @@ export interface ChangeCreditCardMutationVariables {
 
 export interface MeQuery_me_shippingAddress {
   __typename: "ShippingAddress";
-  city: string;
-  country: string;
-  line1: string;
-  line2: string;
-  postal_code: string;
-  state: string;
+  city: string | null;
+  country: string | null;
+  line1: string | null;
+  line2: string | null;
+  postal_code: string | null;
+  state: string | null;
 }
 
 export interface MeQuery_me {
@@ -111,12 +111,12 @@ export interface MeQuery {
 
 export interface CreateSubscriptionMutation_createSubscription_shippingAddress {
   __typename: "ShippingAddress";
-  city: string;
-  country: string;
-  line1: string;
-  line2: string;
-  postal_code: string;
-  state: string;
+  city: string | null;
+  country: string | null;
+  line1: string | null;
+  line2: string | null;
+  postal_code: string | null;
+  state: string | null;
 }
 
 export interface CreateSubscriptionMutation_createSubscription {
@@ -149,12 +149,12 @@ export interface CreateSubscriptionMutationVariables {
 
 export interface LoginUserMutation_login_shippingAddress {
   __typename: "ShippingAddress";
-  city: string;
-  country: string;
-  line1: string;
-  line2: string;
-  postal_code: string;
-  state: string;
+  city: string | null;
+  country: string | null;
+  line1: string | null;
+  line2: string | null;
+  postal_code: string | null;
+  state: string | null;
 }
 
 export interface LoginUserMutation_login {
@@ -204,12 +204,12 @@ export interface RegisterUserMutationVariables {
 
 export interface UserInfo_shippingAddress {
   __typename: "ShippingAddress";
-  city: string;
-  country: string;
-  line1: string;
-  line2: string;
-  postal_code: string;
-  state: string;
+  city: string | null;
+  country: string | null;
+  line1: string | null;
+  line2: string | null;
+  postal_code: string | null;
+  state: string | null;
 }
 
 export interface UserInfo {
@@ -231,12 +231,12 @@ export interface UserInfo {
 //==============================================================
 
 export interface ShippingAddressInput {
-  city: string;
-  country: string;
-  line1: string;
+  city?: string | null;
+  country?: string | null;
+  line1?: string | null;
   line2?: string | null;
-  postal_code: string;
-  state: string;
+  postal_code?: string | null;
+  state?: string | null;
 }
 
 //==============================================================
