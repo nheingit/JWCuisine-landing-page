@@ -2,6 +2,7 @@ import { IResolvers } from "apollo-server-express";
 import { User } from "./entity/User";
 import * as argon2 from "argon2";
 import { stripe } from "./stripe";
+import zipCodeChecker from "./zipCodeChecker";
 
 export const resolvers: IResolvers = {
  Query:{
@@ -47,6 +48,9 @@ export const resolvers: IResolvers = {
             throw new Error(); // should not happen as there is no way to delete users
         }
         // TODO: Don't create subscription if not in zipcode
+        if(!zipCodeChecker(shippingAddress.postal_code)){
+            return new Error("invalid zipcode, we only serve San Antonio currently")
+        }
         let postalCode = user.postalCode;
         let stripeId = user.stripeId
         if(!stripeId){
@@ -95,6 +99,7 @@ export const resolvers: IResolvers = {
         console.log(user);
         await user.save();
         return user;
+         
         
 
         },
@@ -135,7 +140,6 @@ export const resolvers: IResolvers = {
 
         },
 
-        //TODO: Add functionality to end subscription
     cancelSubscription: async(_, __, {req}) =>{
       if(!req.session || !req.session.userId){
             throw new Error("not authenticated");
