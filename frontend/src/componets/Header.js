@@ -5,6 +5,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
 import NavigationBar from './Navbar';
 import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 const useStyles = makeStyles((theme)=> ({
   root:{
     display: 'flex',
@@ -70,6 +71,7 @@ export function ApplicationBar(){
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
         <LoginButton/>
+        <LogoutButton/>
           <h1 className={classes.appbarTitle}>
             <a href="/" className={classes.appbarTitle}>
              <span className={classes.headerText}>J.W.<span className={classes.textColorRed}>Cuisine</span></span>

@@ -7,23 +7,13 @@
 // GraphQL mutation operation: CancelSubscriptionMutation
 // ====================================================
 
-export interface CancelSubscriptionMutation_cancelSubscription_shippingAddress {
-  __typename: "ShippingAddress";
-  city: string | null;
-  country: string | null;
-  line1: string | null;
-  line2: string | null;
-  postal_code: string | null;
-  state: string | null;
-}
-
 export interface CancelSubscriptionMutation_cancelSubscription {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
-  shippingAddress: (CancelSubscriptionMutation_cancelSubscription_shippingAddress | null)[] | null;
+  postalCode: string | null;
 }
 
 export interface CancelSubscriptionMutation {
@@ -39,23 +29,13 @@ export interface CancelSubscriptionMutation {
 // GraphQL mutation operation: ChangeCreditCardMutation
 // ====================================================
 
-export interface ChangeCreditCardMutation_changeCreditCard_shippingAddress {
-  __typename: "ShippingAddress";
-  city: string | null;
-  country: string | null;
-  line1: string | null;
-  line2: string | null;
-  postal_code: string | null;
-  state: string | null;
-}
-
 export interface ChangeCreditCardMutation_changeCreditCard {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
-  shippingAddress: (ChangeCreditCardMutation_changeCreditCard_shippingAddress | null)[] | null;
+  postalCode: string | null;
 }
 
 export interface ChangeCreditCardMutation {
@@ -77,23 +57,13 @@ export interface ChangeCreditCardMutationVariables {
 // GraphQL query operation: MeQuery
 // ====================================================
 
-export interface MeQuery_me_shippingAddress {
-  __typename: "ShippingAddress";
-  city: string | null;
-  country: string | null;
-  line1: string | null;
-  line2: string | null;
-  postal_code: string | null;
-  state: string | null;
-}
-
 export interface MeQuery_me {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
-  shippingAddress: (MeQuery_me_shippingAddress | null)[] | null;
+  postalCode: string | null;
 }
 
 export interface MeQuery {
@@ -106,18 +76,21 @@ export interface MeQuery {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL mutation operation: CreateSubscriptionMutation
+// GraphQL mutation operation: LogoutUserMutation
 // ====================================================
 
-export interface CreateSubscriptionMutation_createSubscription_shippingAddress {
-  __typename: "ShippingAddress";
-  city: string | null;
-  country: string | null;
-  line1: string | null;
-  line2: string | null;
-  postal_code: string | null;
-  state: string | null;
+export interface LogoutUserMutation {
+  logout: boolean | null;
 }
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: CreateSubscriptionMutation
+// ====================================================
 
 export interface CreateSubscriptionMutation_createSubscription {
   __typename: "User";
@@ -125,7 +98,7 @@ export interface CreateSubscriptionMutation_createSubscription {
   email: string;
   type: string;
   ccLast4: string | null;
-  shippingAddress: (CreateSubscriptionMutation_createSubscription_shippingAddress | null)[] | null;
+  postalCode: string | null;
 }
 
 export interface CreateSubscriptionMutation {
@@ -147,23 +120,13 @@ export interface CreateSubscriptionMutationVariables {
 // GraphQL mutation operation: LoginUserMutation
 // ====================================================
 
-export interface LoginUserMutation_login_shippingAddress {
-  __typename: "ShippingAddress";
-  city: string | null;
-  country: string | null;
-  line1: string | null;
-  line2: string | null;
-  postal_code: string | null;
-  state: string | null;
-}
-
 export interface LoginUserMutation_login {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
-  shippingAddress: (LoginUserMutation_login_shippingAddress | null)[] | null;
+  postalCode: string | null;
 }
 
 export interface LoginUserMutation {
@@ -202,23 +165,13 @@ export interface RegisterUserMutationVariables {
 // GraphQL fragment: UserInfo
 // ====================================================
 
-export interface UserInfo_shippingAddress {
-  __typename: "ShippingAddress";
-  city: string | null;
-  country: string | null;
-  line1: string | null;
-  line2: string | null;
-  postal_code: string | null;
-  state: string | null;
-}
-
 export interface UserInfo {
   __typename: "User";
   id: string;
   email: string;
   type: string;
   ccLast4: string | null;
-  shippingAddress: (UserInfo_shippingAddress | null)[] | null;
+  postalCode: string | null;
 }
 
 /* tslint:disable */

@@ -7,7 +7,7 @@ import '../index.css';
 import {meQuery} from "./graphql/me";
 
 
-export default function LoginButton(){
+const LoginButton = () =>{
     return(
         <Query<MeQuery> fetchPolicy="network-only" query={meQuery}>
             {({data, loading})=>{
@@ -30,3 +30,4 @@ export default function LoginButton(){
        )
     
 }
+export default LoginButton;

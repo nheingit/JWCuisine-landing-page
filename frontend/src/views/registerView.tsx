@@ -50,7 +50,7 @@ return(<Mutation<RegisterUserMutation, RegisterUserMutationVariables> mutation={
                    justifyContent: "center"
                        }}>
                 <input value={form.password}
-                type="text"
+                type="password"
                 placeholder="password"
                 onChange={handleChange}
                 name="password"/>

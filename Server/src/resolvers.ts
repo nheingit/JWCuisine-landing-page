@@ -37,6 +37,26 @@ export const resolvers: IResolvers = {
 
          return user;
      },
+     logout: (_, __,{req})=>{
+         const user = User.findOne(req.session.userId);
+
+         if(!user){
+             throw new Error("no user to logout")
+         }
+
+         new Promise((resolve, reject)=>{
+             req.session.destroy((err: Error)=>{
+                 if(err) reject(err);
+
+                 resolve();
+             })
+         })
+            
+
+
+     },
+
+
 
      createSubscription:async (_, {source, ccLast4, shippingAddress}, {req})=>{
         if(!req.session || !req.session.userId){

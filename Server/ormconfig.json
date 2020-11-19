@@ -6,7 +6,6 @@
    "password": "admin",
    "database": "JWCuisine",
    "synchronize": true,
-   "dropSchema": true,
    "logging": false,
    "entities": [
       "src/entity/**/*.ts"

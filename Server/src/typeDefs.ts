@@ -34,6 +34,7 @@ type Mutation{
     createSubscription(source: String!, ccLast4: String!, shippingAddress: ShippingAddressInput!): User
     changeCreditCard(source: String!, ccLast4: String!, shippingAddress: ShippingAddressInput!):User
     cancelSubscription: User
+    logout: Boolean
     
 }
 `;
