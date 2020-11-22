@@ -1,7 +1,7 @@
 import React from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import FoodCardImage from "./FoodCardImage";
-import recipes from "../static/recipe";
+import recipes from "../static/subscriptionPlans";
 import useWindowPosition from '../hook/useWindowPosition';
 import { Grid } from '@material-ui/core';
 

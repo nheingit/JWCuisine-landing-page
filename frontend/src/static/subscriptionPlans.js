@@ -1,7 +1,3 @@
-import React from 'react';
-import picForTwo from './planForTwo.svg';
-
-
 const recipes = [
     {title: 'Recipe\'s for two',
 description: '3 Meals that make two servings, delivered to your door weekly!',

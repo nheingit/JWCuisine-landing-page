@@ -1,4 +1,4 @@
-import { IResolvers } from "apollo-server-express";
+import { IResolvers, UserInputError} from "apollo-server-express";
 import { User } from "./entity/User";
 import * as argon2 from "argon2";
 import { stripe } from "./stripe";
@@ -67,9 +67,10 @@ export const resolvers: IResolvers = {
         if(!user){
             throw new Error(); // should not happen as there is no way to delete users
         }
-        // TODO: Don't create subscription if not in zipcode
+        console.log(shippingAddress.postal_code);
         if(!zipCodeChecker(shippingAddress.postal_code)){
-            return new Error("invalid zipcode, we only serve San Antonio currently")
+            console.log(shippingAddress.postal_code, zipCodeChecker(shippingAddress.postal_code));
+           throw new UserInputError("invalid zipcode, we only serve San Antonio currently");
         }
         let postalCode = user.postalCode;
         let stripeId = user.stripeId
@@ -86,7 +87,7 @@ export const resolvers: IResolvers = {
                 }
 
         });
-        postalCode = customer.address!.postal_code
+        postalCode = customer.address!.postal_code!.replace(/^"(.+(?="$))"$/, '$1');
         stripeId = customer.id
         
         } else {
@@ -100,7 +101,7 @@ export const resolvers: IResolvers = {
                     state: shippingAddress.state
                 }
             }).then(stripeCustomer => {
-                postalCode = stripeCustomer.address!.postal_code
+                postalCode = stripeCustomer.address!.postal_code!.replace(/^"(.+(?="$))"$/, '$1');
             });
         }
         
@@ -135,8 +136,10 @@ export const resolvers: IResolvers = {
         if(!user || !user.stripeId || user.type !== "paid"){
             throw new Error();
         }
+        if(!zipCodeChecker(shippingAddress.postal_code)){
+           throw new UserInputError("invalid zipcode, we only serve San Antonio currently");
+        }
         let postalCode = user.postalCode;
-        //TODO: Create error if postal code isnt in valid area
 
         await stripe.customers.update(user.stripeId, {
             source,
@@ -148,7 +151,7 @@ export const resolvers: IResolvers = {
                     state: shippingAddress.state
                 }
              }).then(stripeCustomer => {
-                postalCode = stripeCustomer.address!.postal_code
+                postalCode = stripeCustomer.address!.postal_code!.replace(/^"(.+(?="$))"$/, '$1');
             });
 ;
         user.postalCode = postalCode;

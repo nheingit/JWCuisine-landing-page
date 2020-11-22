@@ -68,11 +68,27 @@ a {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #e1e2ed;
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
-	background-color:#bab1ba;
+.subscribeButton {
+	box-shadow: 0px 2px 11px -8px #f0f7fa;
+	background:linear-gradient(to bottom, #cf3121 5%, #c00000 100%);
+	background-color:#cf3121;
+	border-radius:9px;
+	border:1px solid #f5f5f5;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Nunito;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 42px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #5b6178;
 }
-.myButton:active {
+.subscribeButton:hover {
+	background:linear-gradient(to bottom, #e22d19 5%, #cc1f00 100%);
+	background-color:#cf3121;
+}
+.subscribeButton:active {
 	position:relative;
 	top:1px;
 }

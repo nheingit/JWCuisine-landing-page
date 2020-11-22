@@ -10,6 +10,7 @@ import ReactCardFlip from 'react-card-flip';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import { CartContext}  from '../hook/CartContext';
+import SubscribeUser from './SubscribeUser';
 
 const useStyles = makeStyles({
   root: {
@@ -110,9 +111,7 @@ export default function MediaCard({prop, checked}) {
           </Typography>
         </CardContent>
         <CardActions>
-          <IconButton disableFocusRipple onClick={handleClick}>
-            <AttachMoneyIcon className={classes.CardFlipper} />
-            </IconButton>
+          <SubscribeUser/>
         </CardActions>
     </Card>
           

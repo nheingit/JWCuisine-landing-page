@@ -19,18 +19,10 @@ const useStyles = makeStyles((theme)=> ({
         backgroundColor: '#1c1b1b',
         justifyContent: 'center',
     },
-    Youtube:{
-        color: '#d61a1a',
-    },
+   
     faceBook:{
         color: '#2d4ee0',
         
-    },
-    twitter:{
-        color: '#1f96c2',
-    },
-    instagram: {
-        color:'#b82ee6',
     },
     footerText:{
         fontFamily: 'Nunito',
@@ -52,25 +44,11 @@ export default function SocialFollow(){
         <div className={classes.footer} id='footer'>
             <Grid container spacing={0} className={classes.gridContainer}>
                 <Grid>
-                    <IconButton>
-                        <YouTubeIcon className={classes.Youtube} />
+                    <IconButton size="large" href='https://www.facebook.com/JWCuisine-132752860237120'>
+                        <FacebookIcon fontSize="large" className={classes.faceBook} />
                     </IconButton>
                 </Grid>
-                <Grid>
-                    <IconButton href='https://www.facebook.com/JWCuisine-132752860237120'>
-                        <FacebookIcon className={classes.faceBook} />
-                    </IconButton>
-                </Grid>
-                <Grid>
-                    <IconButton>
-                        <InstagramIcon className={classes.instagram} />
-                    </IconButton>
-                </Grid>
-                <Grid>
-                    <IconButton>
-                        <TwitterIcon className={classes.twitter} />
-                    </IconButton>
-                </Grid>
+                
                 <Grid>
                     <h3 className={classes.footerText}><span className={classes.redText}>J.W.</span>Cuisine</h3>
                 </Grid>

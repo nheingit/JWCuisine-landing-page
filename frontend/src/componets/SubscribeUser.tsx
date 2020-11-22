@@ -1,9 +1,14 @@
 import * as React from 'react';
 import StripeCheckout from "react-stripe-checkout";
-import {Mutation} from "react-apollo";
+import {Mutation, Query} from "react-apollo";
 import { gql } from 'apollo-boost';
+
+import {Link} from 'react-router-dom'
+import {MeQuery} from "../schemaTypes";
+import {meQuery} from "./graphql/me"
 import {userFragment} from "./graphql/userFragment";
 import {CreateSubscriptionMutation, CreateSubscriptionMutationVariables} from "../schemaTypes";
+import "../index.css"
 
 const createSubscriptionMutation = gql`
     mutation CreateSubscriptionMutation($source: String!, $ccLast4: String!,
@@ -15,7 +20,7 @@ const createSubscriptionMutation = gql`
     }
     ${userFragment}
 `;
-const SubscribeUser = () =>{
+const SubscribeUserButton = () =>{
     return(
     <Mutation<CreateSubscriptionMutation, CreateSubscriptionMutationVariables>
         mutation={createSubscriptionMutation}> 
@@ -38,10 +43,51 @@ const SubscribeUser = () =>{
                     }
                 }
             });
-            console.log(response);
+            console.log("response: ", response);
         }}
-        />
+        >
+            <a href='#' className='subscribeButton' onClick={
+                (event)=>event.preventDefault()}>
+                    Purchase Plan
+            </a>
+        </StripeCheckout>
+
     )}</Mutation>
+    )}
+const SubscribeUser =()=>{
+    return(
+    <Query<MeQuery> fetchPolicy="network-only" query={meQuery}>
+        {({data, loading})=>{
+            if(loading){
+                return null
+            }
+            if(!data){
+                return <div>data is null</div>
+            }
+
+            if(!data.me){
+                return (
+                <a href='/login' className='subscribeButton'>
+                    Purchase Plan
+                </a>)
+            }
+            if(data.me.type==='free-trial'){
+                return(
+                        <SubscribeUserButton/>
+                    )
+                    
+            }
+        //if(data.me.type ==="paid")
+        return (
+         <a href='/account' className='subscribeButton'>
+             Manage Plan
+         </a>
+        )
+
+
+    }}
+    </Query>
+    
     )}
 
 export default SubscribeUser;
