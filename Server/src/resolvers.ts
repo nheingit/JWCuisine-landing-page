@@ -67,9 +67,7 @@ export const resolvers: IResolvers = {
         if(!user){
             throw new Error(); // should not happen as there is no way to delete users
         }
-        console.log(shippingAddress.postal_code);
         if(!zipCodeChecker(shippingAddress.postal_code)){
-            console.log(shippingAddress.postal_code, zipCodeChecker(shippingAddress.postal_code));
            throw new UserInputError("invalid zipcode, we only serve San Antonio currently");
         }
         let postalCode = user.postalCode;
