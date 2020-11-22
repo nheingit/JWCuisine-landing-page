@@ -1,8 +1,8 @@
 const zipcodeChecker = (customerZip: string): boolean  => {
-    console.log("customer zip in function: ", customerZip)
     const intCustomerZip = customerZip.replace(/^"(.+(?="$))"$/, '$1');
-    console.log(intCustomerZip)
-    const validZipcodes = ["78201", "78202", "78203", "78204", "78205", "78206",
+     // removes quotes around object
+    const validZipcodes = [
+         "78201", "78202", "78203", "78204", "78205", "78206",
          "78207", "78208", "78209", "78210",'78211', '78212',
          '78213', '78214', '78215', '78216', '78217', '78218',
          '78219', '78220', '78221', '78222', '78223', '78224',
@@ -16,7 +16,8 @@ const zipcodeChecker = (customerZip: string): boolean  => {
          "78268", "78269", "78270", "78275", "78278", "78279",
          "78280", "78283", "78284", "78285", "78286", "78287",
          "78288", "78289", "78291", "78292", "78293", "78294",
-         "78295", "78296", "78297", "78298", "78299", "78154"];
+         "78295", "78296", "78297", "78298", "78299", "78154"
+        ];
 
         let validCode = false;
         for(let i = 0; i < validZipcodes.length; i++){

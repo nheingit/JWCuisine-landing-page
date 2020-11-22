@@ -85,6 +85,7 @@ export const resolvers: IResolvers = {
                 }
 
         });
+         //stripe wraps it with double quotes despite already being a string, so we remove them with the regex
         postalCode = customer.address!.postal_code!.replace(/^"(.+(?="$))"$/, '$1');
         stripeId = customer.id
         
@@ -99,6 +100,7 @@ export const resolvers: IResolvers = {
                     state: shippingAddress.state
                 }
             }).then(stripeCustomer => {
+                //stripe wraps it with double quotes despite already being a string, so we remove them with the regex
                 postalCode = stripeCustomer.address!.postal_code!.replace(/^"(.+(?="$))"$/, '$1');
             });
         }
@@ -149,6 +151,7 @@ export const resolvers: IResolvers = {
                     state: shippingAddress.state
                 }
              }).then(stripeCustomer => {
+                //stripe wraps it with double quotes despite already being a string, so we remove them with the regex
                 postalCode = stripeCustomer.address!.postal_code!.replace(/^"(.+(?="$))"$/, '$1');
             });
 ;
