@@ -1,5 +1,4 @@
 import React from 'react';
-import {gql} from "apollo-boost";
 import { Query } from "react-apollo";
 
 import {MeQuery} from "../schemaTypes";
@@ -19,9 +18,14 @@ const LoginButton = () =>{
                 }
                 if(!data.me){
                     return(
-                        <a href='/login'  className='button7'>
-                            log in
-                        </a>)
+                        <div>
+                            <a href='/login'  className='button7'>
+                               LOG IN
+                            </a> 
+                            <a href='/register'  className='button2'>
+                              REGISTER
+                            </a>
+                        </div>)
                 }
          //Logout does nothing currently
             return null

@@ -6,6 +6,8 @@ import { Link as Scroll } from 'react-scroll';
 import NavigationBar from './Navbar';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
+import "../index.css"
+
 const useStyles = makeStyles((theme)=> ({
   root:{
     display: 'flex',
@@ -25,13 +27,13 @@ const useStyles = makeStyles((theme)=> ({
   appbar:{
     background: 'none',
     maxWidth: '100vw',
-    justifyContent: 'left',
+    justifyContent:'left',
   },
   appbarTitle:{
     flexGrow: '1',
   },
   textColorRed:{
-    color: '#fc0303',
+    color: '#cf3121',
   },
   textColorWhite:{
     color: '#fff',
@@ -57,7 +59,14 @@ const useStyles = makeStyles((theme)=> ({
   },
   headerText:{
     margin: '1rem',
+  },
+  userLogButtons:{
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+
   }
+
 
 }));
 
@@ -70,14 +79,13 @@ export function ApplicationBar(){
     <div className={classes.applicationbar}>
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
-        <LoginButton/>
-        <LogoutButton/>
-          <h1 className={classes.appbarTitle}>
+            <h1 className={classes.appbarTitle}>
             <a href="/" className={classes.appbarTitle}>
              <span className={classes.headerText}>J.W.<span className={classes.textColorRed}>Cuisine</span></span>
             </a> 
-         </h1>
-        <NavigationBar />
+         </h1> 
+         <LoginButton className={classes.userLogButtons}/>
+        <LogoutButton className={classes.userLogButtons}/>
         </Toolbar>
       </AppBar>
     </div>

@@ -10,16 +10,17 @@ import ReactCardFlip from 'react-card-flip';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import { CartContext}  from '../hook/CartContext';
+
 const useStyles = makeStyles({
   root: {
-    minHeight: '25vh',
+    minHeight: '40vh',
     minWidth: '8vw',
     background: 'rgba(0,0,0,0.5)',
     margin: '2vw'
   },
   media: {
     minWidth: '8vw',
-    minHeight: '25vh',
+    minHeight: '40vh',
 
   },
   title:{

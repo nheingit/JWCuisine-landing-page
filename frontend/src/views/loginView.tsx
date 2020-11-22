@@ -69,17 +69,14 @@ return(<Mutation<LoginUserMutation, LoginUserMutationVariables>
                 placeholder="password"
                 onChange={handleChange}
                 name="password"/>
-                <button type="button" onClick={async ()=> {
+                <a  href="#" className="button7" onClick={async (event)=> {
+                    event.preventDefault();
                     const response = await mutate({
                         variables: form
                     });
                     console.log(response)
                     history.push("/account")
-                }}>Login</button>
-                    <b>
-                      Don't have an account? <br/>
-                      Register <a href='/register'  className='button7'> here
-                </a></b>
+                }}>LOGIN</a>
             </div>
         </div>)}
         </Mutation>
