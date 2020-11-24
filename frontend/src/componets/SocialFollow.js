@@ -1,23 +1,44 @@
 
 import React from 'react';
-import { IconButton, Grid } from "@material-ui/core";
-import YouTubeIcon from '@material-ui/icons/YouTube';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/Instagram';
+import { IconButton, Grid, Typography } from "@material-ui/core";
 import FacebookIcon from '@material-ui/icons/Facebook';
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles, ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
+
+const theme = createMuiTheme();
+
+theme.typography.h2 = {
+  fontSize: '1.3rem',
+  '@media (min-width:600px)': {
+    fontSize: '1.6rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '2rem',
+  },
+  fontFamily: 'Nunito',
+  color: '#fff',
+};
+theme.typography.h3 = {
+  fontSize: '1.2rem',
+  '@media (min-width:600px)': {
+    fontSize: '1.5rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '2rem',
+  },
+  fontFamily: 'Nunito',
+  color: '#fff',
+};
 
 const useStyles = makeStyles((theme)=> ({
     footer:{
-        position: "",
         bottom: "0px",
         width: "100%",
-        height: "2.5rem",
+        Height: "15vh",
+        backgroundColor: '#1c1b1b',
     },
     gridContainer:{
-        flexDirection: 'row',
         backgroundColor: '#1c1b1b',
-        justifyContent: 'center',
+        height: '100%'
     },
    
     faceBook:{
@@ -26,7 +47,7 @@ const useStyles = makeStyles((theme)=> ({
     },
     footerText:{
         fontFamily: 'Nunito',
-        color: '#fff'
+        color: '#fff',
     },
     redText:{
         color:'#ff0000',
@@ -42,27 +63,23 @@ export default function SocialFollow(){
     const classes = useStyles();
     return(
         <div className={classes.footer} id='footer'>
-            <Grid container spacing={0} className={classes.gridContainer}>
-                <Grid>
-                    <IconButton size="large" href='https://www.facebook.com/JWCuisine-132752860237120'>
+        <ThemeProvider theme={theme}>
+            <Grid direction = 'row' container spacing={0} justify='space-evenly' alignItems='center' className={classes.gridContainer}>
+                <Grid item>
+                    <IconButton size="medium" href='https://www.facebook.com/JWCuisine-132752860237120'>
                         <FacebookIcon fontSize="large" className={classes.faceBook} />
                     </IconButton>
                 </Grid>
                 
-                <Grid>
-                    <h3 className={classes.footerText}><span className={classes.redText}>J.W.</span>Cuisine</h3>
+                <Grid item>
+                    <Typography variant='h2'><span className={classes.redText}>J.W.</span>Cuisine</Typography>
                 </Grid>
-                <Grid>
-                    <h3 className={classes.footerText}><pre className={classes.tab}>       Contact Us:</pre></h3>
+                <Grid item>
+                    <Typography variant='h3'> Email: JWCuisine@gmail.com</Typography>
+                    <Typography variant='h3'> Phone: (210)-717-1805</Typography>
                 </Grid>
-                <Grid>
-                    <h3 className={classes.footerText}><pre className={classes.tab}>                Email: jwcusine@gmail.com <br/>                Phone: (210)-717-1805  </pre></h3>
-                </Grid>
-                <Grid>
             </Grid>
-
-            </Grid>
-            
+        </ThemeProvider>
         </div>
       
     );

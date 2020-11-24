@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Query, Mutation } from "react-apollo";
 import {useHistory} from "react-router-dom";
 import {gql} from "apollo-boost";
@@ -24,10 +24,17 @@ const LogoutButtonClicker = ()=>{
             mutate();
             history.push("/")
             history.go(0);
-        }}> Logout </a>
+        }}> LOGOUT </a>
         )}</Mutation>
    
 )
+}
+const AccountManager = () =>{
+    return (
+    <div>
+        <a href="/account"className='button7'>ACCOUNT</a>
+    </div>
+    )
 }
 
 
@@ -44,8 +51,14 @@ return(
                 if(!data.me){
                     return null
                 }
-         //Logout does nothing currently
-            return (<LogoutButtonClicker/>)
+             //if logged in
+            return (
+            <Fragment>
+                <LogoutButtonClicker/>
+                <AccountManager/>
+            </Fragment>
+            )
+
              }}
             </Query>
        )

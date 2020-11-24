@@ -3,7 +3,6 @@ import StripeCheckout from "react-stripe-checkout";
 import {Mutation, Query} from "react-apollo";
 import { gql } from 'apollo-boost';
 
-import {Link} from 'react-router-dom'
 import {MeQuery} from "../schemaTypes";
 import {meQuery} from "./graphql/me"
 import {userFragment} from "./graphql/userFragment";

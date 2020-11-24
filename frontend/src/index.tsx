@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM, {render} from 'react-dom';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {BrowserRouter as Router, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
@@ -10,8 +10,6 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
-import SnackBar from '../src/componets/SnackBar';
-import { SnackbarProvider, useSnackbar } from 'notistack';
 const client = new ApolloClient({
 
   link: ApolloLink.from([
@@ -38,13 +36,11 @@ const client = new ApolloClient({
 }); 
 
 ReactDOM.render(
-  <SnackbarProvider>
   <ApolloProvider client={client}>
   <Router>
      <App />
    </Router>
-   </ApolloProvider>
-   </SnackbarProvider>,
+   </ApolloProvider>,
   document.getElementById('root')
 );
 

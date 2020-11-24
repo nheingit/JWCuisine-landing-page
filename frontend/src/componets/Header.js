@@ -1,13 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import {AppBar,  Toolbar, Collapse, IconButton, } from '@material-ui/core';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import {AppBar,  Toolbar, Collapse, IconButton, Grid, createMuiTheme, Typography, responsiveFontSizes } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
-import NavigationBar from './Navbar';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import "../index.css"
 
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
+
+theme.typography.h2 = {
+  fontSize: "3.75rem",
+  [theme.breakpoints.up('md')]: {
+    fontSize: '3.75rem',
+  },
+  fontFamily: 'Nunito',
+  color: '#fff',
+};
 const useStyles = makeStyles((theme)=> ({
   root:{
     display: 'flex',
@@ -17,10 +28,8 @@ const useStyles = makeStyles((theme)=> ({
     fontFamily: 'Nunito, Monospace'
   },
    applicationbar:{
-    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '20vh',
     fontFamily: 'Nunito, Monospace'
   },
   
@@ -28,6 +37,7 @@ const useStyles = makeStyles((theme)=> ({
     background: 'none',
     maxWidth: '100vw',
     justifyContent:'left',
+    
   },
   appbarTitle:{
     flexGrow: '1',
@@ -65,7 +75,16 @@ const useStyles = makeStyles((theme)=> ({
     justifyContent: 'flex-end',
     alignItems: 'center',
 
-  }
+  },
+  gridContainer:{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  headerFont:{
+    fontFamily: 'nunito',
+    fontSize: '3.75rem'
+  },
 
 
 }));
@@ -77,17 +96,29 @@ export function ApplicationBar(){
 
   return(
     <div className={classes.applicationbar}>
-      <AppBar className={classes.appbar} elevation={0}>
-        <Toolbar className={classes.appbarWrapper}>
-            <h1 className={classes.appbarTitle}>
-            <a href="/" className={classes.appbarTitle}>
-             <span className={classes.headerText}>J.W.<span className={classes.textColorRed}>Cuisine</span></span>
+     <ThemeProvider theme={theme}>
+      <AppBar style={{position: 'fixed'}} className={classes.appbar} elevation={0}>
+        <Toolbar>
+        <Grid container
+          spacing={2}
+          direction="row"
+          justify='space-between'
+          alignItems='center'>
+            <Grid item>
+            <Typography fontSize={classes.headerFont} variant='h2'>
+             <a href="/" className={classes.appbarTitle}>
+              J.W.<span className={classes.textColorRed}>Cuisine</span>
             </a> 
-         </h1> 
-         <LoginButton className={classes.userLogButtons}/>
-        <LogoutButton className={classes.userLogButtons}/>
+           </Typography>
+          </Grid> 
+           <Grid item>
+              <LoginButton className={classes.userLogButtons}/>
+              <LogoutButton className={classes.userLogButtons}/>
+            </Grid>
+         </Grid>
         </Toolbar>
       </AppBar>
+     </ThemeProvider>
     </div>
   )
   }
