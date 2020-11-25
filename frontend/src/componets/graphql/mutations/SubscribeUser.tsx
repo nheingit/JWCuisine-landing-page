@@ -3,11 +3,10 @@ import StripeCheckout from "react-stripe-checkout";
 import {Mutation, Query} from "react-apollo";
 import { gql } from 'apollo-boost';
 
-import {MeQuery} from "../schemaTypes";
-import {meQuery} from "./graphql/me"
-import {userFragment} from "./graphql/userFragment";
-import {CreateSubscriptionMutation, CreateSubscriptionMutationVariables} from "../schemaTypes";
-import "../index.css"
+import {MeQuery} from "../../../schemaTypes";
+import {meQuery} from "../me"
+import {userFragment} from "../userFragment";
+import {CreateSubscriptionMutation, CreateSubscriptionMutationVariables} from "../../../schemaTypes";
 
 const createSubscriptionMutation = gql`
     mutation CreateSubscriptionMutation($source: String!, $ccLast4: String!,

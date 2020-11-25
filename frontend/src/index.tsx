@@ -19,12 +19,19 @@ const client = new ApolloClient({
           console.log(
             `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
           );
-          alert(message);
+          if(message.includes('Failed to fetch')){
+            console.log('Logout bug: ', message)
+          } else {
+          alert(message)
+            }
           }
         );
       if (networkError){ 
+        if(networkError.message.includes('Failed to fetch')){
+       console.log(`Logout Error: ${networkError}`);
+        } else{
        console.log(`[Network error]: ${networkError}`);
-       alert(networkError);
+       alert(networkError)}
       }
     }),
     new HttpLink({

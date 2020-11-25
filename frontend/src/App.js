@@ -2,11 +2,11 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
-import Home from './views/home';
+import Home from './routes/home';
 import {CartProvider} from './hook/CartContext';
-import loginView from "./views/loginView"
-import registerView from "./views/registerView"
-import Account from "./componets/Account";
+import loginView from "./routes/loginView"
+import registerView from "./routes/registerView"
+import Account from "./routes/Account";
 import {ApplicationBar} from "./componets/Header";
 import SocialFollow from './componets/SocialFollow';
 const useStyles = makeStyles((theme)=> ({
@@ -35,8 +35,6 @@ export default function(){
    </Switch>
   </div> 
   <SocialFollow/>
-  
- 
   </CartProvider>
   );
   }

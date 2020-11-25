@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import {AppBar,  Toolbar, Collapse, IconButton, Grid, createMuiTheme, Typography, responsiveFontSizes } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -8,14 +8,10 @@ import LogoutButton from './LogoutButton';
 import "../index.css"
 
 
-let theme = createMuiTheme();
-theme = responsiveFontSizes(theme);
+const theme = createMuiTheme();
 
 theme.typography.h2 = {
-  fontSize: "3.75rem",
-  [theme.breakpoints.up('md')]: {
-    fontSize: '3.75rem',
-  },
+  fontSize: '3.75rem',
   fontFamily: 'Nunito',
   color: '#fff',
 };
@@ -37,7 +33,6 @@ const useStyles = makeStyles((theme)=> ({
     background: 'none',
     maxWidth: '100vw',
     justifyContent:'left',
-    
   },
   appbarTitle:{
     flexGrow: '1',
@@ -78,13 +73,16 @@ const useStyles = makeStyles((theme)=> ({
   },
   gridContainer:{
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: "flex-end"
   },
   headerFont:{
     fontFamily: 'nunito',
     fontSize: '3.75rem'
   },
+  spacer:{
+    width: '100%',
+    height: '100px'
+  }
 
 
 }));
@@ -95,6 +93,8 @@ export function ApplicationBar(){
   useEffect(()=> {setChecked(true);},[])
 
   return(
+    <Fragment>
+    <div className={classes.spacer}></div>
     <div className={classes.applicationbar}>
      <ThemeProvider theme={theme}>
       <AppBar style={{position: 'fixed'}} className={classes.appbar} elevation={0}>
@@ -105,21 +105,23 @@ export function ApplicationBar(){
           justify='space-between'
           alignItems='center'>
             <Grid item>
-            <Typography fontSize={classes.headerFont} variant='h2'>
-             <a href="/" className={classes.appbarTitle}>
-              J.W.<span className={classes.textColorRed}>Cuisine</span>
-            </a> 
-           </Typography>
-          </Grid> 
-           <Grid item>
-              <LoginButton className={classes.userLogButtons}/>
-              <LogoutButton className={classes.userLogButtons}/>
-            </Grid>
-         </Grid>
+              <Typography variant='h3'>
+                 <a href="/" className={classes.appbarTitle}>
+                  J.W.<span className={classes.textColorRed}>Cuisine</span>
+                </a> 
+              </Typography>
+            </Grid> 
+          </Grid>
+           <Grid item container justify='flex-end' alignItems='center'>
+              <LoginButton/>
+              <LogoutButton/>
+           </Grid>
+         
         </Toolbar>
       </AppBar>
      </ThemeProvider>
     </div>
+    </Fragment>
   )
   }
 

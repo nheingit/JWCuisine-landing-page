@@ -31,9 +31,7 @@ const LogoutButtonClicker = ()=>{
 }
 const AccountManager = () =>{
     return (
-    <div>
         <a href="/account"className='button7'>ACCOUNT</a>
-    </div>
     )
 }
 
@@ -54,8 +52,8 @@ return(
              //if logged in
             return (
             <Fragment>
-                <LogoutButtonClicker/>
                 <AccountManager/>
+                <LogoutButtonClicker/>
             </Fragment>
             )
 

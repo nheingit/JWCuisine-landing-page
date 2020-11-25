@@ -3,10 +3,10 @@ import { Query } from "react-apollo";
 import { Redirect } from "react-router-dom";
 
 import {MeQuery} from "../schemaTypes"
-import SubscribeUser from "./SubscribeUser";
-import {meQuery} from "./graphql/me";
-import ChangeCreditCard from './ChangeCreditCard';
-import CancelSubscription from "./CancelSubscription";
+import SubscribeUser from "../componets/graphql/mutations/SubscribeUser";
+import {meQuery} from "../componets/graphql/me";
+import ChangeCreditCard from '../componets/graphql/mutations/ChangeCreditCard';
+import CancelSubscription from "../componets/graphql/mutations/CancelSubscription";
 
 export default function Account(){
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {Fragment, useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Mutation } from "react-apollo";
 import {gql} from "apollo-boost";
@@ -31,7 +31,8 @@ const handleChange:any = (e:any)=>{
 };
 
 
-return(<Mutation<LoginUserMutation, LoginUserMutationVariables>
+return(
+    <Mutation<LoginUserMutation, LoginUserMutationVariables>
     update={(Cache, {data}) =>{
         if(!data ||!data.login){
             return;
@@ -78,7 +79,8 @@ return(<Mutation<LoginUserMutation, LoginUserMutationVariables>
                     history.push("/account")
                 }}>LOGIN</a>
             </div>
-        </div>)}
+        </div>
+        )}
         </Mutation>
 
     )

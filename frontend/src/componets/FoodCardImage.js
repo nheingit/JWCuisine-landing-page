@@ -10,7 +10,7 @@ import ReactCardFlip from 'react-card-flip';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import { CartContext}  from '../hook/CartContext';
-import SubscribeUser from './SubscribeUser';
+import SubscribeUser from './graphql/mutations/SubscribeUser';
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   title:{
       fontFamily: 'Nunito',
       fontWeight: 'bold',
-      fontSize: '2vw',
+      fontSize: '2vw'+400,
       color:'#fff',
   },
   desc:{

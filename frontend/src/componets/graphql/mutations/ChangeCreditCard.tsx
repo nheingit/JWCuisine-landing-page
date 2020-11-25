@@ -2,9 +2,8 @@ import * as React from 'react';
 import StripeCheckout from "react-stripe-checkout";
 import {Mutation} from "react-apollo";
 import { gql } from 'apollo-boost';
-import {userFragment} from "./graphql/userFragment";
-import {ChangeCreditCardMutation, ChangeCreditCardMutationVariables} from "../schemaTypes";
-import '../index.css';
+import {userFragment} from "../userFragment";
+import {ChangeCreditCardMutation, ChangeCreditCardMutationVariables} from "../../../schemaTypes";
 
 const changeCreditCardMutation = gql`
     mutation ChangeCreditCardMutation($source: String!, $ccLast4: String!, $shippingAddress: ShippingAddressInput!){

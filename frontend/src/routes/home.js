@@ -1,11 +1,14 @@
 import React, {Fragment } from 'react';
+
 import Header from '../componets/Header';
-import PlaceToVisit from '../componets/PlaceToVisit';
+import SubscriptionPlans from '../componets/SubscriptionPlans';
+import RecipeValues from '../componets/RecipeValues';
 
 const Home = ()=>(
     <Fragment>
     <Header />
-<PlaceToVisit />
+    <RecipeValues/>
+<SubscriptionPlans/>
 </Fragment>
 )
 export default Home;

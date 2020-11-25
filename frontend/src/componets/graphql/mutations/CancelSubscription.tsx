@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { gql } from "apollo-boost";
-import {userFragment} from "./graphql/userFragment";
+import {userFragment} from "../userFragment";
 import { Mutation } from 'react-apollo';
-import {CancelSubscriptionMutation} from "../schemaTypes";
-import "../index.css";
+import {CancelSubscriptionMutation} from "../../../schemaTypes";
+import '../../../index.css'
 
 const cancelSubscriptionMutation = gql`
     mutation CancelSubscriptionMutation {
