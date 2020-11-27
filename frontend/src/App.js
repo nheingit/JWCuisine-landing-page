@@ -9,22 +9,13 @@ import registerView from "./routes/registerView"
 import Account from "./routes/Account";
 import {ApplicationBar} from "./componets/Header";
 import SocialFollow from './componets/SocialFollow';
-const useStyles = makeStyles((theme)=> ({
-  root:{
-    minHeight: '100vh',
-    backgroundImage:`url(${process.env.PUBLIC_URL+ "./assets/bg.jpg"})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize:"cover",
-    position: "relative",
-  },
-}));
+
+//TODO: Move root background from app page to each individual Route/Component
 export default function(){
-  const classes = useStyles();
 
   return(
     
     <CartProvider>
-   <div className={classes.root}>
    <CssBaseline />
    <ApplicationBar/>
    <Switch>
@@ -33,7 +24,6 @@ export default function(){
      <Route path ="/register" component={registerView}/>
      <Route path="/account" component={Account}/>
    </Switch>
-  </div> 
   <SocialFollow/>
   </CartProvider>
   );

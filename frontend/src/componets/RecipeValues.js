@@ -7,9 +7,12 @@ import Typography from '../componets/Typography'
 
 const styles = (theme) => ({
   root: {
+    Height: '100vh',
     display: 'cover',
     overflow: 'hidden',
-    backgroundColor: 'rgba(94, 2, 2, 0.65)',
+    backgroundColor: 'rgba(16, 34, 101, 1)',
+    backgroundRepeat: "no-repeat",
+    backgroundSize:"cover",
   },
   container: {
     marginTop: theme.spacing(15),
@@ -73,10 +76,10 @@ function RecipeValues(props) {
                 alt="chefHat"
               />
               <Typography variant="h6" style={{color: '#fff'}} className={classes.title}>
-                 Delicious easy meals
+                 Delicious Easy Meals
               </Typography>
               <Typography variant="h5" style={{color: '#dddd', fontFamily: 'Nunito '}} >
-                {'With a recipe created by chef Joseph, just follow instructions and enjoy '}
+                {'With a recipe created by Chef Joseph, just follow instructions and enjoy '}
                 {'for easy meals you thought impossible'}
               </Typography>
             </div>
@@ -89,10 +92,10 @@ function RecipeValues(props) {
                 alt="clock"
               />
               <Typography variant="h6" style={{color: '#fff'}} className={classes.title}>
-                Diverse menu
+                Diverse Menu
               </Typography>
               <Typography variant="h5" style={{color: '#dddd', fontFamily: 'Nunito '}}> 
-                {'chef Joseph spent a lot of time thinking of delicious, and diverse dietary options'}
+                {'Chef Joseph spent a lot of time thinking of delicious, and diverse dietary options'}
                 {'that can be substitutied for various ingredients to suit your own personal needs'}
               </Typography>
             </div>

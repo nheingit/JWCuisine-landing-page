@@ -2,6 +2,7 @@ import React, {Fragment, useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Mutation } from "react-apollo";
 import {gql} from "apollo-boost";
+import {makeStyles} from '@material-ui/core/styles';
 
 import {userFragment} from "../componets/graphql/userFragment";
 import { LoginUserMutation, LoginUserMutationVariables } from "../schemaTypes";
@@ -17,8 +18,18 @@ mutation LoginUserMutation($email: String!, $password: String!){
 ${userFragment}
 
 `;
+const useStyles = makeStyles((theme)=> ({
+  backGround:{
+    minHeight: '100vh',
+    backgroundImage:`url(${process.env.PUBLIC_URL+ "./assets/bg.jpg"})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize:"cover",
+    position: "relative",
+  },
+}));
 
 const LoginView = () =>{
+    const classes = useStyles();
     const [form, setValues] = useState({
         email: "",
         password: "",
@@ -44,7 +55,7 @@ return(
     }}
     mutation={loginMutation}>
         {mutate=>(
-            <div 
+            <div className={classes.backGround}
                 style={{
                   display: "flex",
                   flexDirection: "column",

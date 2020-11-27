@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Mutation } from "react-apollo";
 import {gql} from "apollo-boost";
+import {makeStyles} from '@material-ui/core/styles';
 
 import { RegisterUserMutation, RegisterUserMutationVariables } from "../schemaTypes";
 
@@ -12,9 +13,20 @@ mutation RegisterUserMutation($email: String!, $password: String!){
 
 `;
 
+const useStyles = makeStyles((theme)=> ({
+  backGround:{
+    minHeight: '100vh',
+    backgroundImage:`url(${process.env.PUBLIC_URL+ "./assets/bg.jpg"})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize:"cover",
+    position: "relative",
+  },
+}));
+
 
 
 const RegisterView = () =>{
+    const classes = useStyles();
     const [form, setValues] = useState({
         email: "",
         password: "",
@@ -28,7 +40,7 @@ const handleChange:any = (e:any)=>{
 
 return(<Mutation<RegisterUserMutation, RegisterUserMutationVariables> mutation={registerMutation}>
     {mutate=>(
-        <div 
+        <div className={classes.backGround}
             style={{
               display: "flex",
               flexDirection: "column",

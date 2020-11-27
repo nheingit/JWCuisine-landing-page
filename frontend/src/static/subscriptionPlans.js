@@ -1,5 +1,5 @@
 const recipes = [
-    {title: 'Recipe\'s for two',
+    {title: 'Recipes for two',
 description: '3 Meals that make two servings, delivered to your door weekly!',
 price: 80,
 purchaseTitle: '$80 Monthly',
@@ -9,7 +9,7 @@ id:0,
 quantity:0,
 time: 1500,},
 
-{title: 'Recipe\'s for four',
+{title: 'Recipes for four',
 description: '3 Meals that make four servings, delivered to your door weekly!',
 price: 80,
 purchaseTitle: '$80 Monthly',

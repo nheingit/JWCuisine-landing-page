@@ -16,6 +16,13 @@ theme.typography.h2 = {
   color: '#fff',
 };
 const useStyles = makeStyles((theme)=> ({
+  backGround:{
+    minHeight: '100vh',
+    backgroundImage:`url(${process.env.PUBLIC_URL+ "./assets/bg.jpg"})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize:"cover",
+    position: "relative",
+  },
   root:{
     display: 'flex',
     justifyContent: 'center',
@@ -80,9 +87,12 @@ const useStyles = makeStyles((theme)=> ({
     fontSize: '3.75rem'
   },
   spacer:{
+    backgroundImage:`url(${process.env.PUBLIC_URL+ "./assets/header-background-food.jpg"})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize:"cover",
     width: '100%',
-    height: '100px'
-  }
+    height: '100px',
+  },
 
 
 }));
@@ -133,6 +143,7 @@ export default function Header(){
   
 
   return (
+    <div className={classes.backGround}>
   <div className={classes.root} id='header'>
 
 <Collapse in={checked}
@@ -147,6 +158,7 @@ export default function Header(){
     </Scroll>
 </div>
 </Collapse>
+  </div>
   </div>
    );
  }

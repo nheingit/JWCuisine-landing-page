@@ -10,6 +10,9 @@ import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root:{
+        backgroundImage:`url(${process.env.PUBLIC_URL+ "./assets/subscription-plan-background.jpg"})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize:"cover",
         minHeight:'100vh',
         display:'flex',
         justify: 'center',
