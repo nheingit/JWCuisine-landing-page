@@ -40,8 +40,7 @@ const handleChange:any = (e:any)=>{
     const {name, value} = e.target;
     setValues(prevState => ({...prevState, [name]:value}));
 };
-
-
+//provides logic to login user and provides form fields
 return(
     <Mutation<LoginUserMutation, LoginUserMutationVariables>
     update={(Cache, {data}) =>{
@@ -65,6 +64,7 @@ return(
              <div>
                  <input value={form.email}
                  type="text"
+                 required
                  placeholder="email"
                  onChange={handleChange}
                  name="email"/>
@@ -78,8 +78,20 @@ return(
                        }}>
                 <input value={form.password}
                 type="password"
+                required
                 placeholder="password"
                 onChange={handleChange}
+                //Logs in user if they push enter
+                onKeyDown={async (event: React.KeyboardEvent<HTMLInputElement>) => {
+                  if(event.keyCode === 13){
+                     const response = await mutate({
+                            variables: form
+                               });
+                     console.log(response)
+                     history.push("/account")       
+                     }
+                }}
+                // button to login user
                 name="password"/>
                 <a  href="#" className="button7" onClick={async (event)=> {
                     event.preventDefault();

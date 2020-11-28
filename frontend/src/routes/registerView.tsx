@@ -63,8 +63,18 @@ return(<Mutation<RegisterUserMutation, RegisterUserMutationVariables> mutation={
                        }}>
                 <input value={form.password}
                 type="password"
+                required
                 placeholder="password"
                 onChange={handleChange}
+                onKeyDown={async (event: React.KeyboardEvent<HTMLInputElement>) => {
+                  if(event.keyCode === 13){
+                  const response = await mutate({
+                          variables: form
+                              });
+                  console.log(response)
+                  history.push("/account")       
+                 }
+                }}
                 name="password"/>
                 <button type="button" onClick={async ()=> {
                     const response = await mutate({
