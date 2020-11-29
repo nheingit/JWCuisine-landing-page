@@ -5,9 +5,11 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '../componets/Typography'
 
+
+
 const styles = (theme) => ({
   root: {
-    Height: '100vh',
+    minHeight: '100vh',
     display: 'cover',
     overflow: 'hidden',
     backgroundColor: 'rgba(16, 34, 101, 1)',
@@ -43,7 +45,7 @@ function RecipeValues(props) {
   const { classes } = props;
 
   return (
-    <section className={classes.root}>
+    <section className={classes.root} id='recipe-values'>
       <Container className={classes.container}>
         <img
           src={process.env.PUBLIC_URL+ "./assets/productCurvyLines.png"}
@@ -58,10 +60,10 @@ function RecipeValues(props) {
                 src={process.env.PUBLIC_URL+ "./assets/walletIcon.png"}
                 alt="wallet"
               />
-              <Typography variant="h6" style={{color: '#fff'}} className={classes.title}>
+              <Typography variant="h5" style={{color: '#fff'}} className={classes.title}>
                 The Highest Quality
               </Typography>
-              <Typography style={{color: '#dddd', fontFamily: 'Nunito '}} variant="h5">
+              <Typography style={{color: '#fff', fontFamily: 'Nunito '}} variant="h6">
                 {'The money you spend goes towards purchasing the highest quality ingredients '}
                 {'from local and sustainable sources'}
                 {', so you can feel good not only about what you eat, but what you buy'}
@@ -75,10 +77,10 @@ function RecipeValues(props) {
                 src={process.env.PUBLIC_URL+ "./assets/chefHatIcon.png"}
                 alt="chefHat"
               />
-              <Typography variant="h6" style={{color: '#fff'}} className={classes.title}>
+              <Typography variant="h5" style={{color: '#fff'}} className={classes.title}>
                  Delicious Easy Meals
               </Typography>
-              <Typography variant="h5" style={{color: '#dddd', fontFamily: 'Nunito '}} >
+              <Typography variant="h6" style={{color: '#ffff', fontFamily: 'Nunito '}} >
                 {'With a recipe created by Chef Joseph, just follow instructions and enjoy '}
                 {'for easy meals you thought impossible'}
               </Typography>
@@ -91,11 +93,11 @@ function RecipeValues(props) {
                 src={process.env.PUBLIC_URL+ "./assets/menuIcon.png"}
                 alt="clock"
               />
-              <Typography variant="h6" style={{color: '#fff'}} className={classes.title}>
+              <Typography variant="h5" style={{color: '#fff'}} className={classes.title}>
                 Diverse Menu
               </Typography>
-              <Typography variant="h5" style={{color: '#dddd', fontFamily: 'Nunito '}}> 
-                {'Chef Joseph spent a lot of time thinking of delicious, and diverse dietary options'}
+              <Typography variant="h6" style={{color: '#fff', fontFamily: 'Nunito '}}> 
+                {'Chef Joseph spent a lot of time thinking of delicious, and diverse dietary options '}
                 {'that can be substitutied for various ingredients to suit your own personal needs'}
               </Typography>
             </div>

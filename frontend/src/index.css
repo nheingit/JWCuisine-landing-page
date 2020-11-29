@@ -30,6 +30,25 @@ p{
   color:black;
   opacity: 1;
 }
+/**
+ * Custom cross-browser styles for keyboard :focus overrides defaults.
+ */
+ *:focus { 
+  outline: 0 !important;
+  box-shadow:
+    0 0 0 .2rem #fff,
+    0 0 0 .35rem #069 !important;
+  background-color: none;
+}
+
+/**
+ * Remove focus styles for non-keyboard :focus.
+ */
+*:focus:not(.focus-visible) {
+  outline: 0 !important;
+  background-color: none;
+  box-shadow: none !important;
+}
 
 h2{
   color: #484a4d;
@@ -38,9 +57,18 @@ h2{
 button {
   height: 35px;
   margin: 2rem 0;
+  outline: none;
+  background-color: none;
   padding: 1rem 2rem;
-  width: 120px;
   cursor: pointer;
+}
+button:focus {
+  outline:0;
+  background-color: none;
+}
+button:active, input[type='button']:active {
+  outline: none;
+  background-color: none;
 }
 ul {
   list-style: none;

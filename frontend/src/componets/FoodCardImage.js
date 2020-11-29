@@ -19,6 +19,10 @@ const useStyles = makeStyles({
     background: 'rgba(0,0,0,0.5)',
     margin: '2vw'
   },
+  cardActions:{
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   media: {
     minWidth: '8vw',
     minHeight: '40vh',
@@ -110,8 +114,14 @@ export default function MediaCard({prop, checked}) {
             {prop.description}
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions className={classes.cardActions}>
           <SubscribeUser/>
+          <Typography variant='h5'
+          color='textSecondary'
+          component='h1'
+          className={classes.title}>
+          {prop.price}
+          </Typography>
         </CardActions>
     </Card>
           

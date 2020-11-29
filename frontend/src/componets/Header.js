@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme)=> ({
     fontSize: '5vw'
   },
   title:{
-    color: '#fff',
+    color: '#262626',
     fontSize: '8vw',
   },
   container:{ 
@@ -149,9 +149,9 @@ export default function Header(){
 <Collapse in={checked}
 {...(checked ? { timeout: 1000 } : {})} collapsedHeight={50}>
 <div className={classes.container}>
-  <h1 className={classes.title}>Welcome to <br/>
-    <span className={classes.textColorBlack}>J.W.</span><span className={classes.textColorRed}>Cuisine</span></h1>
-    <Scroll to='recipe-to-use' smooth={true}>
+  <h1 className={classes.title}>Chef curated recipes<br/>
+    <span className={classes.textColorBlack}>delivered</span><span className={classes.textColorRed}> to you</span></h1>
+    <Scroll to='recipe-values' smooth={true}>
       <IconButton>
         <ExpandMoreIcon className={classes.downArrow}/>
       </IconButton>
