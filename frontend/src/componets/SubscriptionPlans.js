@@ -3,6 +3,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import FoodCardImage from "./FoodCardImage";
 import subscriptions from "../static/subscriptionPlans";
 import useWindowPosition from '../hook/useWindowPosition';
+import RecipeContent from '../componets/RecipeContent';
 import { Grid } from '@material-ui/core';
 import '../index.css';
 
@@ -43,16 +44,19 @@ export default function(){
                     </Grid>
                     ))
                 )
-    }
-
+    };
     const classes = useStyles();
     const checked = useWindowPosition('header');
     return(
         <div className={classes.root} id='recipe-to-use'>
             <Grid container spacing={0} className={classes.gridContainer} justify='center'>
-            <ContentCards array={subscriptions}/>
+                <ContentCards array={subscriptions}/>
+                <Grid container justify="center" className={classes.gridContainer}>
+                    <RecipeContent/>
+                </Grid>
             </Grid>
-            </div>
+            
+        </div>
                 
         
     )

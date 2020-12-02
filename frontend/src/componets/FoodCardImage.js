@@ -5,10 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {CardActions, Collapse, IconButton} from '@material-ui/core';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import ReactCardFlip from 'react-card-flip';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import { CartContext}  from '../hook/CartContext';
 import SubscribeUser from './graphql/mutations/SubscribeUser';
 
@@ -91,7 +87,6 @@ export default function MediaCard({prop, checked}) {
   return (
     
    <Collapse in={checked }   {...(checked ? { timeout: 1000 } : {})} collapsedHeight={50}>
-      <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
         <div>
           <Card className={classes.root}>
         <CardMedia
@@ -124,44 +119,7 @@ export default function MediaCard({prop, checked}) {
           </Typography>
         </CardActions>
     </Card>
-          
-        </div>
- 
-        <div>
-<Card className={classes.root}>
-        <CardContent className={classes.media}>
-          <Typography gutterBottom variant="h5"
-           component="h1"
-            className={classes.title}
-            >
-            {prop.purchaseTitle}
-          </Typography>
-          <Typography variant="body2"
-           color="textSecondary"
-            component="p"
-             className={classes.desc}
-             >
-            {prop.purchaseDescription}
-          </Typography>
-        </CardContent>
-        <CardActions>
-        <IconButton onClick={removeFromCart}>
-            <RemoveShoppingCartIcon className={classes.removeShoppingCartIcon} />
-         </IconButton>
-        </CardActions>
-        <CardActions>
-          <IconButton onClick={addToCart}>
-            <AddShoppingCartIcon className={classes.addShoppingCartIcon} />
-          </IconButton>
-        </CardActions>
-        <CardActions>
-          <IconButton onClick={handleClick}>
-            <AttachMoneyIcon className={classes.CardFlipper} />
-          </IconButton>
-        </CardActions>
-    </Card>
-           </div>
-      </ReactCardFlip>
+    </div>
       </Collapse>
     )
 }

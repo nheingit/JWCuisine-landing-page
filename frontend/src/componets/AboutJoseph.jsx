@@ -1,17 +1,19 @@
 import React from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from './Typography'
-import { withStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme)=>({
     backGround: {
-    minHeight: '25vh',
-    display: 'cover',
-    overflow: 'hidden',
-    backgroundColor: 'rgba(5, 5, 5, 1)',
-    backgroundRepeat: "no-repeat",
-    backgroundSize:"cover",
+        backgroundImage:`url(${process.env.PUBLIC_URL+ "./assets/header-background-food.jpg"})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        minHeight: '25vh',
+        display: 'cover',
+        overflow: 'hidden',
+        backgroundColor: 'rgba(5, 5, 5, 1)',
+        backgroundRepeat: "no-repeat",
+        backgroundSize:"cover",
     }
 }));
 
@@ -26,7 +28,7 @@ return (
             and passion in cooking, both for himself and for others. This amplified as he went to Culinary School and graduated
             with honors. He has worked in multiple fine dining concepts as well as catering, hotels, casual dining, and private events. 
             Whether it's making a meal for the whole family to enjoy, or planning an epic multiple course meal for a romantic night in, Chef has you covered.
-            At J.W.Cuisine we are all about creating memories and giving time back to those that need it most, 
+            At  J.W.Cuisine we are all about creating memories and giving time back to those that need it most; 
             which is everyone! From our kitchen to your table, we hope you enjoy it. Bon Appetit!
         </Typography>
     </div>
