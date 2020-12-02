@@ -31,42 +31,27 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const SubscriptionCards = () => {
-
-    const checked = useWindowPosition('header');
-    return(
-                subscriptions.map(data=>(
-                  <Grid item xs={12} sm={6} lg={4}>
-            <FoodCardImage prop={data} checked={checked}/>
-                </Grid>
-                ))
-            )
-}
-
-const RecipeCards = () => {
-    const checked = useWindowPosition('header');
-    return subscriptions.map(data=>(
-                  <Grid item xs={12} sm={6} lg={4}>
-            <FoodCardImage prop={data} checked={checked}/>
-                </Grid>
-    ))
-}
-
 
 export default function(){
+    const ContentCards = ({array}) => {
+        const checked = useWindowPosition('header')
+
+        return(
+                    array.map(data=>(
+                    <Grid item xs={12} sm={6} lg={4}>
+                <FoodCardImage prop={data} checked={checked}/>
+                    </Grid>
+                    ))
+                )
+    }
+
     const classes = useStyles();
     const checked = useWindowPosition('header');
     return(
         <div className={classes.root} id='recipe-to-use'>
             <Grid container spacing={0} className={classes.gridContainer} justify='center'>
-            <SubscriptionCards /> 
-            <Grid container justify='center'><h1 style={{fontFamily: 'nunito', color: '#fff'}}>Recipes</h1></Grid>
-            <Grid container>
-            <RecipeCards/>
+            <ContentCards array={subscriptions}/>
             </Grid>
-            {/*<h3>Grid Text where Carousel go</h3>*/}
-            </Grid>
-
             </div>
                 
         

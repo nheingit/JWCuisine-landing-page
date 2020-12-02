@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
   cardActions:{
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space',
   },
   media: {
     minWidth: '8vw',
