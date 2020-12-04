@@ -56,7 +56,72 @@ export const resolvers: IResolvers = {
 
      },
 
+      createSubscriptionFour:async (_, {source, ccLast4, shippingAddress}, {req})=>{
+        if(!req.session || !req.session.userId){
+            throw new Error("not authenticated");
+        }
+        const user = await User.findOne(req.session.userId);
 
+        if(!user){
+            throw new Error(); // should not happen as there is no way to delete users
+        }
+        if(!zipCodeChecker(shippingAddress.postal_code)){
+           throw new UserInputError("invalid zipcode, we only serve San Antonio currently");
+        }
+        let postalCode = user.postalCode;
+        let stripeId = user.stripeId
+        if(!stripeId){
+        const customer =  await stripe.customers.create({
+            email: user.email,
+            source,
+            address: {
+                    city: shippingAddress.city,
+                    line1: shippingAddress.line1,
+                    line2: shippingAddress.line2,
+                    postal_code: shippingAddress.postal_code,
+                    state: shippingAddress.state
+                }
+
+        });
+         //stripe wraps it with double quotes despite already being a string, so we remove them with the regex
+        postalCode = customer.address!.postal_code!.replace(/^"(.+(?="$))"$/, '$1');
+        stripeId = customer.id
+        
+        } else {
+            await stripe.customers.update(stripeId, {
+                source,
+                address: {
+                    city: shippingAddress.city,
+                    line1: shippingAddress.line1,
+                    line2: shippingAddress.line2,
+                    postal_code: shippingAddress.postal_code,
+                    state: shippingAddress.state
+                }
+            }).then(stripeCustomer => {
+                //stripe wraps it with double quotes despite already being a string, so we remove them with the regex
+                postalCode = stripeCustomer.address!.postal_code!.replace(/^"(.+(?="$))"$/, '$1');
+            });
+        }
+        
+        const subscription = await stripe.subscriptions.create({
+            customer: stripeId,
+            items: [{
+                plan: process.env.STRIPE_SUBSCRIPTION_FOR_FOUR
+            }]
+        })
+        
+        user.postalCode = postalCode;
+        user.priceId = subscription.id;
+        user.stripeId = stripeId;
+        user.ccLast4  = ccLast4;
+        user.type = "paid";
+        console.log(user);
+        await user.save();
+        return user;
+         
+        
+
+        },
 
      createSubscription:async (_, {source, ccLast4, shippingAddress}, {req})=>{
         if(!req.session || !req.session.userId){
@@ -108,7 +173,7 @@ export const resolvers: IResolvers = {
         const subscription = await stripe.subscriptions.create({
             customer: stripeId,
             items: [{
-                plan: process.env.STRIPE_SUBSCRIPTION
+                plan: process.env.STRIPE_SUBSCRIPTION_FOR_TWO
             }]
         })
         
