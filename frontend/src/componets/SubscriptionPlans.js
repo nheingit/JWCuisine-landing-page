@@ -51,7 +51,7 @@ export default function(){
         <div className={classes.root} id='recipe-to-use'>
             <Grid container spacing={0} className={classes.gridContainer} justify='center'>
                 <ContentCards array={subscriptions}/>
-                <Grid container justify="center" className={classes.gridContainer}>
+                <Grid item xs={12} sm={12} lg={8}  className={classes.gridContainer}>
                     <RecipeContent/>
                 </Grid>
             </Grid>

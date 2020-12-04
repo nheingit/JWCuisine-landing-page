@@ -8,8 +8,8 @@ import RecipeCardImage from '../componets/RecipeCardImage';
 const useStyles = makeStyles((theme)=>({
     backGround: {
     background: 'rgba(0,0,0,0.5)',
-    width: '100%',
-    height: '100%',
+    minHeight: '40vh',
+    margin: '2vw'
     },
 }));
 

@@ -53,6 +53,9 @@ p{
 h2{
   color: #484a4d;
 }
+.MuiAppBar-positionFixed{
+  right: 1px;
+}
 
 button {
   height: 35px;

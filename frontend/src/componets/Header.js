@@ -38,8 +38,9 @@ const useStyles = makeStyles((theme)=> ({
   
   appbar:{
     background: 'none',
-    maxWidth: '100vw',
-    justifyContent:'left',
+    width: '100vw',
+    justifyContent:'flex-start',
+    top: '0px',
   },
   appbarTitle:{
     flexGrow: '1',
@@ -107,7 +108,7 @@ export function ApplicationBar(){
     <div className={classes.spacer}></div>
     <div className={classes.applicationbar}>
      <ThemeProvider theme={theme}>
-      <AppBar style={{position: 'fixed'}} className={classes.appbar} elevation={0}>
+      <AppBar position='fixed' className={classes.appbar} elevation={0}>
         <Toolbar>
         <Grid container
           spacing={2}
