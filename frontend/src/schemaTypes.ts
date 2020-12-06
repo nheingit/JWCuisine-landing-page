@@ -130,6 +130,34 @@ export interface CreateSubscriptionMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: CreateSubscriptionFourMutation
+// ====================================================
+
+export interface CreateSubscriptionFourMutation_createSubscriptionFour {
+  __typename: "User";
+  id: string;
+  email: string;
+  type: string;
+  ccLast4: string | null;
+  postalCode: string | null;
+}
+
+export interface CreateSubscriptionFourMutation {
+  createSubscriptionFour: CreateSubscriptionFourMutation_createSubscriptionFour | null;
+}
+
+export interface CreateSubscriptionFourMutationVariables {
+  source: string;
+  ccLast4: string;
+  shippingAddress: ShippingAddressInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: LogoutUserMutation
 // ====================================================
 

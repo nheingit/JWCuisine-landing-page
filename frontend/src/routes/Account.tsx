@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 import {makeStyles} from '@material-ui/core/styles';
 
 import {MeQuery} from "../schemaTypes"
-import SubscribeUser from "../componets/graphql/mutations/SubscribeUser";
 import {meQuery} from "../componets/graphql/me";
 import ChangeCreditCard from '../componets/graphql/mutations/ChangeCreditCard';
 import CancelSubscription from "../componets/graphql/mutations/CancelSubscription";
@@ -46,11 +45,10 @@ export default function Account(){
                 )
             }
             if(data.me.type==='free-trial'){
-                return(<div className={classes.backGround}>
-                    <p>It looks like your subscription has run out!<br/>Please resubscribe
-                        <SubscribeUser/>
-                    </p></div>)
-                    
+                return(<div className={classes.backGround} style={{justifyContent: 'flex-start', display: 'flex'}}>
+                    <h3 style={{margin: 0}}>It looks like your subscription has run out!<br/>Please resubscribe <br/>
+                    <a href='/' className='subscribeButton'>Go Home</a>
+                    </h3></div>)
             }
         //if(data.me.type ==="paid")
         const cart = [{name: 'CartOneDish'}, {name: 'CartTwoDish'}, {name: 'CartThreeDish'}, {name: 'CartFourDish'}];
@@ -61,7 +59,6 @@ export default function Account(){
             <div style={subscriptionButtonStyle}>
                 <ChangeCreditCard/>
                 <CancelSubscription/>
-                {console.log(newCart)}
                 <AddDishes dishes={newCart}/>
             </div>
         </div>

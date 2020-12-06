@@ -200,7 +200,7 @@ export const resolvers: IResolvers = {
         if(!user || !user.stripeId || user.type !== "paid"){
             throw new Error();
         }
-            await stripe.customers.update(user.stripeId, {
+            const response = await stripe.customers.update(user.stripeId, {
                 metadata: {
                     dishOne: foodDishData.dishOne,
                     dishTwo: foodDishData.dishTwo,
@@ -209,6 +209,8 @@ export const resolvers: IResolvers = {
                 }
         })
 
+        console.log(response);
+        response;
         return user;
         
 

@@ -6,22 +6,22 @@ import { gql } from 'apollo-boost';
 import {MeQuery} from "../../../schemaTypes";
 import {meQuery} from "../me"
 import {userFragment} from "../userFragment";
-import {CreateSubscriptionMutation, CreateSubscriptionMutationVariables} from "../../../schemaTypes";
+import {CreateSubscriptionFourMutation, CreateSubscriptionFourMutationVariables} from "../../../schemaTypes";
 
-const createSubscriptionMutation = gql`
-    mutation CreateSubscriptionMutation($source: String!, $ccLast4: String!,
+const createSubscriptionFourMutation = gql`
+    mutation CreateSubscriptionFourMutation($source: String!, $ccLast4: String!,
      $shippingAddress: ShippingAddressInput!){
-        createSubscription(source: $source, ccLast4: $ccLast4,
+        createSubscriptionFour(source: $source, ccLast4: $ccLast4,
          shippingAddress: $shippingAddress){
             ...UserInfo
         }
     }
     ${userFragment}
 `;
-const SubscribeUserButton = () =>{
+const SubscribeUserFourButton = () =>{
     return(
-    <Mutation<CreateSubscriptionMutation, CreateSubscriptionMutationVariables>
-        mutation={createSubscriptionMutation}> 
+    <Mutation<CreateSubscriptionFourMutation, CreateSubscriptionFourMutationVariables>
+        mutation={createSubscriptionFourMutation}> 
         {mutate =>(
         <StripeCheckout
         billingAddress
@@ -50,13 +50,13 @@ const SubscribeUserButton = () =>{
         >
             <a href='#' className='subscribeButton' onClick={
                 (event)=>event.preventDefault()}>
-                    Purchase Plan For Two
+                    Purchase Plan for Four
             </a>
         </StripeCheckout>
 
     )}</Mutation>
     )}
-const SubscribeUser =()=>{
+const SubscribeUserFour =()=>{
     return(
     <Query<MeQuery> fetchPolicy="network-only" query={meQuery}>
         {({data, loading})=>{
@@ -75,7 +75,7 @@ const SubscribeUser =()=>{
             }
             if(data.me.type==='free-trial'){
                 return(
-                        <SubscribeUserButton/>
+                        <SubscribeUserFourButton/>
                     )
                     
             }
@@ -85,11 +85,9 @@ const SubscribeUser =()=>{
              Manage Plan
          </a>
         )
-
-
     }}
     </Query>
     
     )}
 
-export default SubscribeUser;
+export default SubscribeUserFour;

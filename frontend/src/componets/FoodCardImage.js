@@ -6,7 +6,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {CardActions, Collapse, IconButton} from '@material-ui/core';
 import { CartContext}  from '../hook/CartContext';
-import SubscribeUser from './graphql/mutations/SubscribeUser';
 
 const useStyles = makeStyles({
   root: {
@@ -17,7 +16,7 @@ const useStyles = makeStyles({
   },
   cardActions:{
     alignItems: 'center',
-    justifyContent: 'space',
+    justifyContent: 'space-between',
   },
   media: {
     minWidth: '8vw',
@@ -60,7 +59,7 @@ const useStyles = makeStyles({
 
 });
 
-export default function MediaCard({prop, checked}) {
+export default function MediaCard({prop, checked, subscription}) {
   const [cart, setCart] = useContext(CartContext);
   const classes = useStyles();
   const [isFlipped, setIsFlipped] = useState(false);
@@ -110,7 +109,7 @@ export default function MediaCard({prop, checked}) {
           </Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
-          <SubscribeUser/>
+          {subscription}
           <Typography variant='h5'
           color='textSecondary'
           component='h1'
