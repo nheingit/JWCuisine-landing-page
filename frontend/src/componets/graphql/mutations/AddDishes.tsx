@@ -14,17 +14,15 @@ const addDishToSubscriptionMutation = gql`
     ${userFragment}
 `;
 
-const AddDishes = () => {
-    const firstDish = "test dish 1";
-    const secondDish = "test dish 2";
-    const thirdDish = "test dish 3";
-    const fourthDish = "test dish 4";
+const AddDishes = ({dishes}: {dishes: Array<string>}) => {
+    const [firstDish, secondDish, thirdDish, fourthDish] = dishes
     return(
     <Mutation<AddDishToSubscriptionMutation, AddDishToSubscriptionMutationVariables>
         mutation={addDishToSubscriptionMutation}>
             {mutate =>(
                 <a href='#' className='subscribeButton' onClick={(event)=>{
                     event.preventDefault();
+                    console.log(dishes);
                     mutate({
                         variables:{
                             foodDishData: {

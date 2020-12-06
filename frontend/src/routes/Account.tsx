@@ -53,13 +53,16 @@ export default function Account(){
                     
             }
         //if(data.me.type ==="paid")
+        const cart = [{name: 'CartOneDish'}, {name: 'CartTwoDish'}, {name: 'CartThreeDish'}, {name: 'CartFourDish'}];
+        const newCart = cart.map(({name})=> name);
         return (
         <div className={classes.backGround}>
             <div>the last 4 digits of your card are: {data.me.ccLast4}</div>
             <div style={subscriptionButtonStyle}>
                 <ChangeCreditCard/>
                 <CancelSubscription/>
-                <AddDishes/>
+                {console.log(newCart)}
+                <AddDishes dishes={newCart}/>
             </div>
         </div>
         )
