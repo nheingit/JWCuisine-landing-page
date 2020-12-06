@@ -8,6 +8,7 @@ import SubscribeUser from "../componets/graphql/mutations/SubscribeUser";
 import {meQuery} from "../componets/graphql/me";
 import ChangeCreditCard from '../componets/graphql/mutations/ChangeCreditCard';
 import CancelSubscription from "../componets/graphql/mutations/CancelSubscription";
+import AddDishes from "../componets/graphql/mutations/AddDishes";
 
 
 const useStyles = makeStyles((theme)=> ({
@@ -58,6 +59,7 @@ export default function Account(){
             <div style={subscriptionButtonStyle}>
                 <ChangeCreditCard/>
                 <CancelSubscription/>
+                <AddDishes/>
             </div>
         </div>
         )

@@ -4,6 +4,54 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: MeQuery
+// ====================================================
+
+export interface MeQuery_me {
+  __typename: "User";
+  id: string;
+  email: string;
+  type: string;
+  ccLast4: string | null;
+  postalCode: string | null;
+}
+
+export interface MeQuery {
+  me: MeQuery_me | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: AddDishToSubscriptionMutation
+// ====================================================
+
+export interface AddDishToSubscriptionMutation_addDishToSubscription {
+  __typename: "User";
+  id: string;
+  email: string;
+  type: string;
+  ccLast4: string | null;
+  postalCode: string | null;
+}
+
+export interface AddDishToSubscriptionMutation {
+  addDishToSubscription: AddDishToSubscriptionMutation_addDishToSubscription | null;
+}
+
+export interface AddDishToSubscriptionMutationVariables {
+  foodDishData: FoodDishInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: CancelSubscriptionMutation
 // ====================================================
 
@@ -54,41 +102,6 @@ export interface ChangeCreditCardMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: MeQuery
-// ====================================================
-
-export interface MeQuery_me {
-  __typename: "User";
-  id: string;
-  email: string;
-  type: string;
-  ccLast4: string | null;
-  postalCode: string | null;
-}
-
-export interface MeQuery {
-  me: MeQuery_me | null;
-}
-
-/* tslint:disable */
-/* eslint-disable */
-// @generated
-// This file was automatically generated and should not be edited.
-
-// ====================================================
-// GraphQL mutation operation: LogoutUserMutation
-// ====================================================
-
-export interface LogoutUserMutation {
-  logout: boolean | null;
-}
-
-/* tslint:disable */
-/* eslint-disable */
-// @generated
-// This file was automatically generated and should not be edited.
-
-// ====================================================
 // GraphQL mutation operation: CreateSubscriptionMutation
 // ====================================================
 
@@ -109,6 +122,19 @@ export interface CreateSubscriptionMutationVariables {
   source: string;
   ccLast4: string;
   shippingAddress: ShippingAddressInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: LogoutUserMutation
+// ====================================================
+
+export interface LogoutUserMutation {
+  logout: boolean | null;
 }
 
 /* tslint:disable */
@@ -182,6 +208,13 @@ export interface UserInfo {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+export interface FoodDishInput {
+  dishOne?: string | null;
+  dishTwo?: string | null;
+  dishThree?: string | null;
+  dishFour?: string | null;
+}
 
 export interface ShippingAddressInput {
   city?: string | null;

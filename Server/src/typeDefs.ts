@@ -25,6 +25,12 @@ input ShippingAddressInput {
     postal_code: String
     state: String
 }
+input FoodDishInput{
+    dishOne: String
+    dishTwo: String
+    dishThree: String
+    dishFour: String
+}
 type Query {
     me: User
 }
@@ -32,6 +38,8 @@ type Mutation{
     register(email: String!, password: String!): Boolean!
     login(email: String!, password: String!): User
     createSubscription(source: String!, ccLast4: String!, shippingAddress: ShippingAddressInput!): User
+    createSubscriptionFour(source: String!, ccLast4: String!, shippingAddress: ShippingAddressInput!): User
+    addDishToSubscription(foodDishData: FoodDishInput!): User
     changeCreditCard(source: String!, ccLast4: String!, shippingAddress: ShippingAddressInput!):User
     cancelSubscription: User
     logout: Boolean

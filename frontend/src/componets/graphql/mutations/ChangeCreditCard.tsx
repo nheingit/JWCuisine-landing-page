@@ -22,6 +22,7 @@ const ChangeCreditCard = () =>{
         stripeKey={process.env.REACT_APP_STRIPE_KEY!}
         billingAddress
         shippingAddress
+        //we TS ignore because the 2nd arg is depreciated, and causes a type error
         //@ts-ignore
         token={async (token, address) =>{
             const response = await mutate({

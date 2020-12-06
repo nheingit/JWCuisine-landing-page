@@ -190,7 +190,29 @@ export const resolvers: IResolvers = {
 
         },
 
+    addDishToSubscription:async (_, {foodDishData}, {req})=>{
+        
+        if(!req.session || !req.session.userId){
+            throw new Error("not authenticated");
+        }
+        const user = await User.findOne(req.session.userId);
 
+        if(!user || !user.stripeId || user.type !== "paid"){
+            throw new Error();
+        }
+            await stripe.customers.update(user.stripeId, {
+                metadata: {
+                    dishOne: foodDishData.dishOne,
+                    dishTwo: foodDishData.dishTwo,
+                    dishThree: foodDishData.dishThree,
+                    dishFour: foodDishData.dishFour,
+                }
+        })
+
+        return user;
+        
+
+        },
       changeCreditCard:async (_, {source, ccLast4, shippingAddress}, {req})=>{
         
         if(!req.session || !req.session.userId){
