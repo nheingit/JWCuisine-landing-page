@@ -4,20 +4,23 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import {CardActions, Collapse, IconButton} from '@material-ui/core';
+import {CardActions, IconButton} from '@material-ui/core';
 import { CartContext}  from '../hook/CartContext';
-import SubscribeUser from './graphql/mutations/SubscribeUser';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 const useStyles = makeStyles({
   root: {
-    minHeight: '40vh',
+    minHeight: '70vh',
     minWidth: '8vw',
     background: 'rgba(0,0,0,0.5)',
     margin: '2vw'
   },
   cardActions:{
+    display: 'flex',
+    margin: '2vh',
     alignItems: 'center',
-    justifyContent: 'space',
+    justifyContent: 'flex-start',
   },
   media: {
     minWidth: '8vw',
@@ -60,24 +63,27 @@ const useStyles = makeStyles({
 
 });
 
-export default function MediaCard({prop, checked}) {
+export default function MediaCard({prop}) {
   const [cart, setCart] = useContext(CartContext);
   const classes = useStyles();
   const [isFlipped, setIsFlipped] = useState(false);
 
   const addToCart = () => {
-    const recipe = {name: prop.title, price: prop.price, id: prop.id}
+    if(cart.length <4){
+      const recipe = {name: prop.title}
     setCart(items => [...items, recipe]);
-  }
+          }
+    }
+    
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   }
 
   const removeFromCart = ()=>{
-    const recipe = {id: prop.id}
-    const itemsToKeep = cart.filter(items =>( items.id !== recipe.id))
-    const itemsToRemove = cart.filter(items =>( items.id === recipe.id))
+    const recipe = {name: prop.title}
+    const itemsToKeep = cart.filter(items =>( items.name !== recipe.name))
+    const itemsToRemove = cart.filter(items =>( items.name === recipe.name))
     itemsToRemove.pop();
     const newCart = itemsToKeep.concat(itemsToRemove);
     setCart(newCart);
@@ -85,8 +91,6 @@ export default function MediaCard({prop, checked}) {
   }
 
   return (
-    
-   <Collapse in={checked }   {...(checked ? { timeout: 1000 } : {})} collapsedHeight={50}>
         <div>
           <Card className={classes.root}>
         <CardMedia
@@ -110,17 +114,21 @@ export default function MediaCard({prop, checked}) {
           </Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
-          <SubscribeUser/>
           <Typography variant='h5'
           color='textSecondary'
           component='h1'
           className={classes.title}>
-          {prop.price}
+          {prop.timeToMake}
+          <IconButton onClick={addToCart}>
+            <AddCircleIcon/>
+          </IconButton>
+          <IconButton onClick={removeFromCart}>
+            <RemoveCircleIcon/>
+          </IconButton>
           </Typography>
         </CardActions>
     </Card>
     </div>
-      </Collapse>
     )
 }
 

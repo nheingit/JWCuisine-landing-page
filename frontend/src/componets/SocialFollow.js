@@ -3,6 +3,7 @@ import React from 'react';
 import { IconButton, Grid, Typography } from "@material-ui/core";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import {makeStyles, ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
+import '../index.css';
 
 const theme = createMuiTheme();
 
@@ -40,7 +41,6 @@ const useStyles = makeStyles((theme)=> ({
         backgroundColor: '#1c1b1b',
         height: '100%'
     },
-   
     faceBook:{
         color: '#2d4ee0',
         

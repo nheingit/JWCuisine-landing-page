@@ -4,11 +4,15 @@ import { Redirect } from "react-router-dom";
 import {makeStyles} from '@material-ui/core/styles';
 
 import {MeQuery} from "../schemaTypes"
+import { Grid } from '@material-ui/core';
 import {meQuery} from "../componets/graphql/me";
+import recipes from '../static/recipes';
 import ChangeCreditCard from '../componets/graphql/mutations/ChangeCreditCard';
 import CancelSubscription from "../componets/graphql/mutations/CancelSubscription";
 import AddDishes from "../componets/graphql/mutations/AddDishes";
-
+import FoodCardImagePurchase from '../componets/FoodCardImagePurchase';
+import { useContext } from "react";
+import { CartContext}  from '../hook/CartContext';
 
 const useStyles = makeStyles((theme)=> ({
   backGround:{
@@ -28,6 +32,17 @@ export default function Account(){
         alignItems: "flex-start",
         display: "grid"
     }
+
+    const CardContentInGrid = (array: any) => (
+        array.map((item: any) => (
+            <Grid item xs={12} sm={6} lg={4}>
+                <FoodCardImagePurchase prop={item}/>
+            </Grid>
+        )
+    ))
+  const [cart, setCart] = useContext(CartContext);
+
+
 
     return(
     <Query<MeQuery> fetchPolicy="network-only" query={meQuery}>
@@ -51,16 +66,20 @@ export default function Account(){
                     </h3></div>)
             }
         //if(data.me.type ==="paid")
-        const cart = [{name: 'CartOneDish'}, {name: 'CartTwoDish'}, {name: 'CartThreeDish'}, {name: 'CartFourDish'}];
-        const newCart = cart.map(({name})=> name);
         return (
         <div className={classes.backGround}>
             <div>the last 4 digits of your card are: {data.me.ccLast4}</div>
             <div style={subscriptionButtonStyle}>
                 <ChangeCreditCard/>
                 <CancelSubscription/>
-                <AddDishes dishes={newCart}/>
+                <AddDishes dishes={cart.map(({name}: {name:String})=> name)}/>
+
+                {console.log('cart contains: ', cart)}
+                {cart.map(({name}: {name:String})=> name)}
             </div>
+              <Grid container spacing={0} justify='center'>
+                  {CardContentInGrid(recipes)}
+            </Grid>
         </div>
         )
 
