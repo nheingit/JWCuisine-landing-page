@@ -5,28 +5,21 @@ Hello reader, this readme will be a short tutorial on how to boot up this repo a
 Before we get into the repo, we need a server to hook it up to, If you want to have it configured exactly as I have you will need to run a postgresDB locally on your machine, I know a lot of people use heroku to spinup a server as well, that should be fine, you will just need to go to the ormconfig.json in the server directory and change this section here:
 {
    "type": "postgres",
+   
    "host": "localhost",
+   
    "port": 5432,
+   
    "username": "postgres",
+   
    "password": "admin",
+   
    "database": "JWCuisine",
+   
    "synchronize": true,
+   
    "logging": false,
-   "entities": [
-      "src/entity/**/*.ts"
-   ],
-   "migrations": [
-      "src/migration/**/*.ts"
-   ],
-   "subscribers": [
-      "src/subscriber/**/*.ts"
-   ],
-   "cli": {
-      "entitiesDir": "src/entity",
-      "migrationsDir": "src/migration",
-      "subscribersDir": "src/subscriber"
-   }
-},
+  }
 
 You should just need to change the host information, although we're using typorm so you could go with any DB  that they support.
 
