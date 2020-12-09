@@ -1,5 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
+##About
 Hello reader, this readme will be a short tutorial on how to boot up this repo and get it working if you are cloning it onto your device, along with a list of things that I learned along the way making this project!
 
 Before we get into the repo, we need a server to hook it up to, If you want to have it configured exactly as I have you will need to run a postgresDB locally on your machine, I know a lot of people use heroku to spinup a server as well, that should be fine, you will just need to go to the ormconfig.json in the server directory and change this section here:
@@ -120,4 +120,4 @@ https://www.digitalocean.com/community/tutorials/react-converting-to-a-hook
 and of course stack overflow!
 https://stackoverflow.com/
 
-Overall this has been my first project as a software developer, and in a few years(probably months honestly) I know I will look back at this code and cringe at how I decide to structure everything and  how I wrote code, but I am pretty proud of my finished product, and it has taught me more than I could have ever hoped for or expected!
+This has been my first project as a software developer, I know I will look back at this code and see how much I've grown, and that is the most exciting part for me!
