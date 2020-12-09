@@ -3,6 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Hello reader, this readme will be a short tutorial on how to boot up this repo and get it working if you are cloning it onto your device, along with a list of things that I learned along the way making this project!
 
 Before we get into the repo, we need a server to hook it up to, If you want to have it configured exactly as I have you will need to run a postgresDB locally on your machine, I know a lot of people use heroku to spinup a server as well, that should be fine, you will just need to go to the ormconfig.json in the server directory and change this section here:
+
 {
    "type": "postgres",
    
