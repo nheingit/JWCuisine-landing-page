@@ -99,7 +99,8 @@ a {
 	font-size:17px;
 	padding:7px 25px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #e1e2ed;
+  text-shadow:0px 1px 0px #e1e2ed;
+  margin: 8px;
 }
 .subscribeButton {
 	box-shadow: 0px 2px 11px -8px #f0f7fa;

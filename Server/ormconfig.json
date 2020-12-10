@@ -1,10 +1,10 @@
 {
    "type": "postgres",
-   "host": "localhost",
+   "host": "ec2-23-20-205-19.compute-1.amazonaws.com",
    "port": 5432,
-   "username": "postgres",
-   "password": "admin",
-   "database": "JWCuisine",
+   "username": "kkabgxlqduzidb",
+   "password": "8a77499631f1715c4e9f0a9cbf344949e4ec0adff623a8568b00c59dfd56cd60",
+   "database": "dcse581kahhk8s",
    "synchronize": true,
    "logging": false,
    "entities": [

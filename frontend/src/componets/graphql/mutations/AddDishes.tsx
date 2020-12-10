@@ -7,7 +7,6 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, {AlertProps} from '@material-ui/lab/Alert';
 import {AddDishToSubscriptionMutation, AddDishToSubscriptionMutationVariables} from '../../../schemaTypes'
 import '../../../index.css'
-import { StringDecoder } from 'string_decoder';
 
 const addDishToSubscriptionMutation = gql`
     mutation AddDishToSubscriptionMutation($foodDishData: FoodDishInput!){
@@ -54,7 +53,7 @@ const AddDishes = ({dishes}: {dishes: Array<string>}) => {
                     openSnackBar();
                 }
                 }>
-                    Test Dish adding stuff
+                    Submit Dishes
                 </a>
                 <Snackbar open={open} autoHideDuration={6000} onClose={closeSnackBar}>
                     <Alert onClose={closeSnackBar} severity='success'>
