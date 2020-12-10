@@ -28,7 +28,7 @@ With all of the introductions out of the way lets get to the meat-and-potatoes!
 
 
 Before we get into the repo, we need a server to hook it up to, If you want to have it configured exactly as I have you will need to run a postgresDB locally on your machine, I know a lot of people use heroku to spinup a server as well, that should be fine, you will just need to go to the `ormconfig.json` in the located at `root/server/ormconfig.json` and change this section here:
-```
+```json
 {
    "type": "postgres",
    
