@@ -15,7 +15,7 @@ So for me I had a to-do list to get started on, I needed my project to:
    * pay for different subscriptions that would bill weekly
    * allow them to edit and delete these subscriptions
    * allow them to change their address, and make sure it was within Joseph's delivery range
-   * let them pick what dishes they would be recieving and allow them to change it from week to week.
+   * let them pick what dishes they would be receiving and allow them to change it from week to week.
 * Aggregate all of his contact information and social media links
 * Stay consistent with his current branding theme
 
@@ -51,34 +51,23 @@ They will walk you through getting it installed on your machine and getting it u
 
 ## Stripe
 
-Stripe Docs:
-https://stripe.com/docs
+The only other config that we have to deal with is hooking up your stripe information in the server and the frontend. Anywhere you see `{process.env.<THE_.ENV_VARIABLE>}` it will need to be replaced with a generated stripe key. [Stripe's documentation](https://stripe.com/docs) is here to show you how to set this up. But, long story short, you should just need:
+* a public key you use on the frontend
+* a private key you use on the backend
 
+You can obtain these keys from the dashboard, and also roll new ones in case they become compromised. There are two separate subscription mutations that use separate pricing models. There is a `.env` used there as well. You would substitute the `Price_ID` of a product that you created via the Stripe CLI/dashboard and plug it in there. Using test keys it would look something like this:
 
-
-The only other config that we have to deal with is hooking up your stripe information in the server and the frontend. Anywhere you see the ` {process.env.<THE_.ENV_VARIABLE>} `
-will need to be replaced with a stripe key that you generate. Stripe docs are here to show you how to set this up, but longstory short, you should just need a public key that you use on the frontend, and a private key that you use on the backend, you can obtain these keys from the dashboard, and also roll new ones in case they become comprimised.
-
-There are two seperate subscription mutations, that use seperate pricing models, and there is a `.env` used there as well, You would substitutde the `Price_ID` of a product that you created via the stripe CLI or the stripe dashboard. and just plug it in there.
-
-Using test keys it would look something like this:
-
- Frontend in your .env file:
+#### Stripe example public key- Frontend in your `.env` file
 
 * `REACT_APP_STRIPE_KEY=pk_test_51HdzEeJIQLh7k5Y6avX8H0E4tzhNP1DBG5YwNQRepgNUsNDEtoK5yIPRQusxEvdLc0qIFD8usXkzawrcn1dtEwGo00Giughavn9` 
-   <--- stripe example public key
 
- Server in your .env file:
+#### Stripe example private key - Server in your `.env` file
 
 * `STRIPE_KEY=sk_test_51HdzEeJIQLh7k5Y6EpBYW0fe4zbSoDhmD0lMPHzOyT2kSlvML1YDWg8Jzqc3YsSWtxgwWyRQpSZw6jH7xZudVMFF005PdFxbut` 
-   ^^^ stripe example private key
-
 * `STRIPE_SUBSCRIPTION_FOR_TWO=<Your Price_ID 1>`
-
 * `STRIPE_SUBSCRIPTION_FOR_FOUR=<Your Price _ID 2>`
 
-Once you have stripe configured, we're ready to start looking at the fun stuff!
-
+Once you have Stripe configured, we're ready to start looking at the fun stuff!
 
 ## CodeBase
 
