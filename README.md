@@ -1,5 +1,6 @@
 ## Introduction
-Hello reader, my name is Noah Hein and this is my first project as a web developer that has been self-taught for the last 3 months. I am super excited to share this with you all. This readme will be a short tutorial on how to boot up this repo and get it working if you are cloning it onto your device, along with a list of things that I learned along the way making this project, and why I made it in the first place.
+
+Hello reader, my name is Noah Hein! This is my first project as a self-taught web developer studying for the last 3 months. I am super excited to share this with you all. This `README` will be a short tutorial on how to boot up this repo and get it working if you are cloning it onto your device. It also includes a list of things that I learned along the way while making the project, and why I made it in the first place.
 
 ## About
 I wanted to create a website for my wonderful brother Joseph who is a culinary expert that was looking to expand his catering business into the online space. 
