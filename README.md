@@ -3,7 +3,8 @@
 Hello reader, my name is Noah Hein! This is my first project as a self-taught web developer studying for the last 3 months. I am super excited to share this with you all. This `README` will be a short tutorial on how to boot up this repo and get it working if you are cloning it onto your device. It also includes a list of things that I learned along the way while making the project, and why I made it in the first place.
 
 ## About
-I wanted to create a website for my wonderful brother Joseph who is a culinary expert that was looking to expand his catering business into the online space. 
+
+I wanted to create a website for my wonderful brother Joseph. He is a culinary expert looking to expand his catering business into the online space. 
 He wanted a website that would let him do the following:
 * People would be able to email him about potential catering/private chef events
 * Have his contact info and social media listed for potential clients
@@ -18,17 +19,12 @@ So for me I had a to-do list to get started on, I needed my project to:
 * Aggregate all of his contact information and social media links
 * Stay consistent with his current branding theme
 
-
 With all of the introductions out of the way lets get to the meat-and-potatoes!
 
 ## Database
 
+Before we get into the repo, we need a server to hook it up to. If you want to have it configured exactly as I have you will need to run a Postgres database locally on your machine. I know a lot of people use heroku to spin up a server as well. That should be fine, you will just need to go to the `ormconfig.json` file located at `root/server/ormconfig.json` and change the following section:
 
-
-
-
-
-Before we get into the repo, we need a server to hook it up to, If you want to have it configured exactly as I have you will need to run a postgresDB locally on your machine, I know a lot of people use heroku to spinup a server as well, that should be fine, you will just need to go to the `ormconfig.json` in the located at `root/server/ormconfig.json` and change this section here:
 ```json
 {
    "type": "postgres",
@@ -47,14 +43,11 @@ Before we get into the repo, we need a server to hook it up to, If you want to h
    
    "logging": false,
   } 
-  ```
-You will need to change the host information along with your ` database ` , ` username `  and ` password ` , although we're using typorm so you could go with any DB  that they support.
+```
 
-If you don't know how to, or haven't run a server locally before you can follow the steps here:  https://www.tutorialspoint.com/postgresql/
+You will need to change the host information along with your ` database ` , ` username `  and ` password `. Since we're using typorm so you could go with any DB that they support. If you don't know how to, or haven't run a server locally before you can [follow the steps here](https://www.tutorialspoint.com/postgresql/).
 
-They will walk you through getting it installed on your machine and getting it up and running to where you can run psql commands from your terminal!
-
-The DB is the most painful part of the process; so  reader, if you have gotten this far, it should be smooth sailing!
+They will walk you through getting it installed on your machine and getting it up and running to where you can run psql commands from your terminal! The DB is the most painful part of the process; so reader, if you have gotten this far, it should be smooth sailing!
 
 ## Stripe
 
