@@ -108,7 +108,7 @@ After all of the dependencies are finished downloading we should be good to go
 
 At this point you should have the browser boot up to localhost:3000 and the site should be functional!
 
-## Conclusion
+## Conclusion and Takeaways
 
 This concludes the tutorial section this is the first readme I've written, so if you have any feedback or encouner and problems in the actual tutorial steps, please shoot me an email, my contact will be at the bottom!
 
@@ -117,20 +117,36 @@ Here is a list of the tech that I had to learn/use to build the site:
 React, ApolloClient, Typeorm, PostgresSQL, Typescript, Yarn, Stripe, GraphQL, Dotenv, Express, Material-UI, and UUID.
 
 Things I learned along the way:
+
 How to make a website responsive
+
 How to consume an API
+
 How to work with a modern JS library
+
 How to consume SOMEBODY ELSES API
+
 How to build an API
+
 How to successfully version your code using git
+
 How to stylize components
+
 How to use cookies
+
 How to use Local Storage
+
 How to build your own Authorization system
+
 How to hash sensitive data that you will hold in your DB
+
 How to handle CORS
+
 How to provide useful errors for your application
+
 How to validate user data
+
+# Resources
 
 Now to compile a list of resources that I used to learn all of the technologies!
 
