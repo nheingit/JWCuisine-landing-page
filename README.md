@@ -9,11 +9,13 @@ He wanted a website that would let him do the following:
 * He wanted to start delivering recipes to people around town and have them manage their subscription and address from the site.
 
 So for me I had a to-do list to get started on, I needed my project to:
-* create and validate users that were able to:
+* Create and validate users that were able to:
    * pay for different subscriptions that would bill weekly
    * allow them to edit and delete these subscriptions
    * allow them to change their address, and make sure it was within Joseph's delivery range
    * let them pick what dishes they would be recieving and allow them to change it from week to week.
+* Aggregate all of his contact information and social media links
+* Stay consistent with his current branding theme
 
 
 With all of the introductions out of the way lets get to the meat-and-potatoes!
