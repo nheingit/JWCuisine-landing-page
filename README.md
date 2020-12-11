@@ -104,69 +104,52 @@ At this point you should have the browser boot up to [localhost:3000](https://lo
 
 ## Conclusion and Takeaways
 
-This concludes the tutorial section this is the first readme I've written, so if you have any feedback or encouner and problems in the actual tutorial steps, please shoot me an email, my contact will be at the bottom!
+This concludes the tutorial section this is the first readme I've written, so if you have any feedback or encounter and problems in the actual tutorial steps, please shoot me an email, my contact will be at the bottom!
 
 Here is a list of the tech that I had to learn/use to build the site:
 
-React, ApolloClient, Typeorm, PostgresSQL, Typescript, Yarn, Stripe, GraphQL, Dotenv, Express, Material-UI, and UUID.
+* React
+* ApolloClient
+* TypeORM
+* PostgresSQL
+* Typescript
+* Yarn
+* Stripe
+* GraphQL
+* Dotenv
+* Express
+* Material-UI
+* UUID
 
-Things I learned along the way:
+### Things I learned along the way
 
-How to make a website responsive
+* How to make a website responsive
+* How to consume an API
+* How to work with a modern JS library
+* How to consume SOMEBODY ELSES API
+* How to build an API
+* How to successfully version your code using git
+* How to stylize components
+* How to use cookies
+* How to use Local Storage
+* How to build your own Authorization system
+* How to hash sensitive data that you will hold in your DB
+* How to handle CORS
+* How to provide useful errors for your application
+* How to validate user data
 
-How to consume an API
-
-How to work with a modern JS library
-
-How to consume SOMEBODY ELSES API
-
-How to build an API
-
-How to successfully version your code using git
-
-How to stylize components
-
-How to use cookies
-
-How to use Local Storage
-
-How to build your own Authorization system
-
-How to hash sensitive data that you will hold in your DB
-
-How to handle CORS
-
-How to provide useful errors for your application
-
-How to validate user data
-
-# Resources
+## Resources
 
 Now to compile a list of resources that I used to learn all of the technologies!
 
-Big shoutout to BenAwad's tutorials, I used his stripe integration with graphql to start out with:
+* Big shoutout to Ben Awad's tutorials, I used his [stripe integration with graphql]((https://www.youtube.com/watch?v=G-Kj8Re6spA&list=PLN3n1USn4xllF5t1GZhEwFQNDnStgupdB&ab_channel=BenAwad)) to start out with. He walks through getting typeORM configured and getting you to the point where you can communicate between your graphql api and the client.
+* [Very basic tutorial on how to use material-ui](https://www.youtube.com/watch?v=rK0Lz8x7npA&t=295s&ab_channel=DailyWebCoding)
+* [Apollo Docs](https://www.apollographql.com/docs/)
+* [Stripe Docs](https://stripe.com/docs)
+* Lots of the docs I was looking at were pre v16 for React, so they were all using [Classes instead of functional components and hooks](https://www.digitalocean.com/community/tutorials/react-converting-to-a-hook)
+* I needed to track only the shipping address from stripe, and this feature was not easily findable on the stripe docs, but I found a nice blog showing me [how to get a shipping token](https://mattarkin.com/how-to-get-billing-and-shipping-address-data-from-stripe-checkout/)
+* Of course [stack overflow!](https://stackoverflow.com/)
 
-https://www.youtube.com/watch?v=G-Kj8Re6spA&list=PLN3n1USn4xllF5t1GZhEwFQNDnStgupdB&ab_channel=BenAwad
-He walks through getting typeORM configured and getting you to the point where you can communicate between your graphql api and the client.
-
-Very basic tutorial on how to use material-ui:
-https://www.youtube.com/watch?v=rK0Lz8x7npA&t=295s&ab_channel=DailyWebCoding
-
-Apollo Docs:
-https://www.apollographql.com/docs/
-
-Stripe Docs:
-https://stripe.com/docs
-
-Lots of the docs I was looking at were pre v16 for React, so they were all using Classes instead of functional components and hooks:
-https://www.digitalocean.com/community/tutorials/react-converting-to-a-hook
-
-I needed to track only the shipping address from stripe, and this feature was not easily findable on the stripe docs, but I found a nice blog showing me how to get a shipping token:
-https://mattarkin.com/how-to-get-billing-and-shipping-address-data-from-stripe-checkout/
-
-Of course stack overflow!
-https://stackoverflow.com/
-
-For any questions or concerns you can email me at: noahjhein@gmail.com, or find me on twitter @NHeinDev.
+For any questions or concerns you can email me at noahjhein@gmail.com, or find me on twitter @NHeinDev.
 
 Thanks for reading!
