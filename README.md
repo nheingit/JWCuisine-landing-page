@@ -28,24 +28,17 @@ Before we get into the repo, we need a server to hook it up to. If you want to h
 ```json
 {
    "type": "postgres",
-   
    "host": "localhost",
-   
    "port": 5432,
-   
    "username": "postgres",
-   
    "password": "admin",
-   
    "database": "JWCuisine",
-   
    "synchronize": true,
-   
    "logging": false,
   } 
 ```
 
-You will need to change the host information along with your ` database ` , ` username `  and ` password `. Since we're using typorm so you could go with any DB that they support. If you don't know how to, or haven't run a server locally before you can [follow the steps here](https://www.tutorialspoint.com/postgresql/).
+You will need to change the host information along with your `database`, `username`, and `password`. We're using typeORM so you could go with any database that they support. If you haven't run a server locally before you can [follow these steps](https://www.tutorialspoint.com/postgresql/).
 
 They will walk you through getting it installed on your machine and getting it up and running to where you can run psql commands from your terminal! The DB is the most painful part of the process; so reader, if you have gotten this far, it should be smooth sailing!
 
@@ -57,11 +50,11 @@ The only other config that we have to deal with is hooking up your stripe inform
 
 You can obtain these keys from the dashboard, and also roll new ones in case they become compromised. There are two separate subscription mutations that use separate pricing models. There is a `.env` used there as well. You would substitute the `Price_ID` of a product that you created via the Stripe CLI/dashboard and plug it in there. Using test keys it would look something like this:
 
-#### Stripe example public key- Frontend in your `.env` file
+#### Example public key - Frontend in `.env` file
 
 * `REACT_APP_STRIPE_KEY=pk_test_51HdzEeJIQLh7k5Y6avX8H0E4tzhNP1DBG5YwNQRepgNUsNDEtoK5yIPRQusxEvdLc0qIFD8usXkzawrcn1dtEwGo00Giughavn9` 
 
-#### Stripe example private key - Server in your `.env` file
+#### Example private key - Server in `.env` file
 
 * `STRIPE_KEY=sk_test_51HdzEeJIQLh7k5Y6EpBYW0fe4zbSoDhmD0lMPHzOyT2kSlvML1YDWg8Jzqc3YsSWtxgwWyRQpSZw6jH7xZudVMFF005PdFxbut` 
 * `STRIPE_SUBSCRIPTION_FOR_TWO=<Your Price_ID 1>`
@@ -104,9 +97,7 @@ At this point you should have the browser boot up to [localhost:3000](https://lo
 
 ## Conclusion and Takeaways
 
-This concludes the tutorial section this is the first readme I've written, so if you have any feedback or encounter and problems in the actual tutorial steps, please shoot me an email, my contact will be at the bottom!
-
-Here is a list of the tech that I had to learn/use to build the site:
+This concludes the tutorial section this is the first readme I've written, so if you have any feedback or encounter and problems in the actual tutorial steps, please shoot me an email, my contact will be at the bottom! Here is a list of the tech that I had to learn/use to build the site:
 
 * React
 * ApolloClient
@@ -142,12 +133,15 @@ Here is a list of the tech that I had to learn/use to build the site:
 
 Now to compile a list of resources that I used to learn all of the technologies!
 
-* Big shoutout to Ben Awad's tutorials, I used his [stripe integration with graphql]((https://www.youtube.com/watch?v=G-Kj8Re6spA&list=PLN3n1USn4xllF5t1GZhEwFQNDnStgupdB&ab_channel=BenAwad)) to start out with. He walks through getting typeORM configured and getting you to the point where you can communicate between your graphql api and the client.
+* Big shoutout to Ben Awad, I used his [stripe integration with graphql tutorials](https://www.youtube.com/watch?v=G-Kj8Re6spA&list=PLN3n1USn4xllF5t1GZhEwFQNDnStgupdB&ab_channel=BenAwad) to start out with.
+  * He walks through getting typeORM configured
+  * He gets you to the point where you can communicate between your graphql api and the client
 * [Very basic tutorial on how to use material-ui](https://www.youtube.com/watch?v=rK0Lz8x7npA&t=295s&ab_channel=DailyWebCoding)
-* [Apollo Docs](https://www.apollographql.com/docs/)
-* [Stripe Docs](https://stripe.com/docs)
+* [Apollo Documenation](https://www.apollographql.com/docs/)
+* [Stripe Documenation](https://stripe.com/docs)
 * Lots of the docs I was looking at were pre v16 for React, so they were all using [Classes instead of functional components and hooks](https://www.digitalocean.com/community/tutorials/react-converting-to-a-hook)
-* I needed to track only the shipping address from stripe, and this feature was not easily findable on the stripe docs, but I found a nice blog showing me [how to get a shipping token](https://mattarkin.com/how-to-get-billing-and-shipping-address-data-from-stripe-checkout/)
+* I found a nice blog showing me [how to get a shipping token](https://mattarkin.com/how-to-get-billing-and-shipping-address-data-from-stripe-checkout/)
+  * I needed to track only the shipping address from Stripe but this feature was not easily findable on the stripe docs
 * Of course [stack overflow!](https://stackoverflow.com/)
 
 For any questions or concerns you can email me at noahjhein@gmail.com, or find me on twitter @NHeinDev.
