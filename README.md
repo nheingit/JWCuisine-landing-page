@@ -71,25 +71,36 @@ Once you have Stripe configured, we're ready to start looking at the fun stuff!
 
 ## CodeBase
 
-So getting it up and running shouldn't be too much of an issue at this point. We're using yarn, and have two different package.json files to look at. If we're sitting in the root we need to
+Getting it up and running shouldn't be too much of an issue at this point. We're using `yarn`, and have two different `package.json` files to look at. If we're sitting in the root we need to `cd` into `server` and run `yarn install`.
 
-1. cd server
-2. yarn install
-After all of the dependencies are finished downloading we support both yarn watch(using nodemon) and yarn start
-3. yarn start
-4. We are done! you should get a console.log of the port that the server is on like so:
+```bash
+cd server
+yarn install
+```
+
+After all of the dependencies are finished downloading we support both `yarn watch` (using nodemon) and `yarn start`.
+
+```bash
+yarn start
+```
+
+We are done! You should get a `console.log` of the port that the server is on like so:
 
 `🚀 Server ready at http://localhost:4000/graphql`
 
-Now that the server is up, lets go ahead and go over to the frontend
+Now that the server is up, let's go ahead and go over to the frontend. Once we `cd` into the frontend, it'll be the same steps as above:
 
-Once we cd into the frontend, it'll be the same steps as above:
+```bash
+yarn install
+```
 
-1. yarn install
-After all of the dependencies are finished downloading we should be good to go
-2. yarn start.
+After all of the dependencies are finished downloading we should be good to go:
 
-At this point you should have the browser boot up to localhost:3000 and the site should be functional!
+```bash
+yarn start
+```
+
+At this point you should have the browser boot up to [localhost:3000](https://localhost:3000) and the site should be functional!
 
 ## Conclusion and Takeaways
 
