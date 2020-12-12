@@ -6,6 +6,9 @@
    "password": "8a77499631f1715c4e9f0a9cbf344949e4ec0adff623a8568b00c59dfd56cd60",
    "database": "dcse581kahhk8s",
    "synchronize": true,
+   "extra": {
+      "ssl": true
+   },
    "logging": false,
    "entities": [
       "src/entity/**/*.ts"
