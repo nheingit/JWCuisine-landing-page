@@ -1,12 +1,16 @@
-{
-   "type": "postgres",
-   "host": "ec2-23-20-205-19.compute-1.amazonaws.com",
-   "port": 5432,
-   "username": "kkabgxlqduzidb",
-   "password": "8a77499631f1715c4e9f0a9cbf344949e4ec0adff623a8568b00c59dfd56cd60",
-   "database": "dcse581kahhk8s",
+{  "type": "postgres",
+   "host": "jwcuisine-do-user-8439541-0.b.db.ondigitalocean.com",
+   "port": 25060,
+   "username": "doadmin",
+   "password": "abi4s2s7jrai8rs6",
+   "database": "defaultdb",
+   "ssl": {
+      "rejectUnauthorized:": false,
+      "ca": "fs.readFileSync('/etc/letsencrypt/live/jwcuisine.io/cert.pem').toString()",
+      "key": "fs.readFileSync('/etc/letsencrypt/live/jwcuisine.io/'privkey.pem)",
+      "cert": "fs.readFileSync('/etc/letsencrypt/live/jwcuisine.io/'chain.pem')"
+   },
    "synchronize": true,
-   "ssl": true,
    "logging": false,
    "entities": [
       "src/entity/**/*.ts"
