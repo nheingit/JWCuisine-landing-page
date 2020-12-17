@@ -8,6 +8,7 @@
      "moduleResolution": "node",
  
      "removeComments": true,
+     "esModuleInterop": true,
      "noImplicitAny": false,
      "strictNullChecks": true,
      "strictFunctionTypes": true,
