@@ -8,7 +8,6 @@
      "moduleResolution": "node",
  
      "removeComments": true,
-     "esModuleInterop": true,
      "noImplicitAny": false,
      "strictNullChecks": true,
      "strictFunctionTypes": true,
@@ -17,7 +16,7 @@
      "noUnusedParameters": true,
      "noImplicitReturns": true,
      "noFallthroughCasesInSwitch": true,
-     "allowSyntheticDefaultImports": false,
+     "allowSyntheticDefaultImports": true,
      "emitDecoratorMetadata": true,
      "experimentalDecorators": true,
    
