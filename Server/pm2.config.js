@@ -1,7 +1,7 @@
 const name = 'JWCuisineServerApi' // Name to use in PM2
 const repo = 'https://github.com/nheingit/JWCuisine-landing-page.git' // Link to your repo
 const user = 'root' // Server user
-const path = `/home/${user}/${name}/source/Server` // Path on the server to deploy to
+const path = `/home/${user}/${name}/source/Server/source/Server` // Path on the server to deploy to
 const host = '165.22.188.205' // Server hostname
 const port = 4000 // Port to use locally on the server
 const build = 'yarn install && yarn tsc' // Build commands
