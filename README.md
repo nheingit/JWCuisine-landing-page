@@ -1,6 +1,6 @@
 ## Introduction
 
-Hello reader, my name is Noah Hein! This is my first project as a self-taught web developer studying for the last 3 months. I am super excited to share this with you all. This `README` will be a short tutorial on how to boot up this repo and get it working if you are cloning it onto your device. It also includes a list of things that I learned along the way while making the project, and why I made it in the first place.
+I am super excited to share this with you all. This `README` will be a short tutorial on how to boot up this repo and get it working if you are cloning it onto your device. It also includes a list of things that I learned along the way while making the project, and why I made it in the first place.
 
 ## About
 
